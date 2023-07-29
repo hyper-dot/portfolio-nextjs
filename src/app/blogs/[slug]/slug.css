@@ -59,7 +59,7 @@
 }
 
 .content a {
-  color: #5e9cff;
+  color: #367fff;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -93,19 +93,37 @@ blockquote {
 pre {
   border-radius: 5px;
   padding: 1rem;
-  /* Add your styles for the pre tag under the light theme */
-  background-color: #1e1e1e;
+  background-color: #3d3d3d;
   font-style: italic;
-  /* Add other styles as needed */
   overflow-x: auto;
+  scrollbar-width: 5px;
+}
+.dark pre {
+  background-color: #1e1e1e;
+}
+/* Customize the scrollbar thumb */
+pre::-webkit-scrollbar-thumb {
+  background-color: #a5a5a5;
+  border-radius: 3px;
+  width: 6px; /* Change the width to adjust the scrollbar thumb */
+}
+
+/* Customize the scrollbar track */
+pre::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  width: 6px; /* Change the width to adjust the scrollbar track */
 }
 
 /* Styles for pre under dark theme */
 code {
   padding: 3px 5px;
   border-radius: 5px;
+  background-color: #3d3d3d;
+  color: #73ff9a;
+}
+.dark code {
   background-color: #1e1e1e;
-  color: #7dfff4;
 }
 .content img {
   display: block;
