@@ -42,3 +42,14 @@ export const PUT = async (req, { params }) => {
     return new NextResponse('cannot find the post', { status: 500 });
   }
 };
+
+export const DELETE = async (req, { params }) => {
+  const { slug } = params;
+  try {
+    await Post.findOneAndDelete({ slug });
+    return new NextResponse('deleted successfully', { status: 200 });
+  } catch (err) {
+    console.log(err);
+    return new NextResponse('cannot delete post', { status: 500 });
+  }
+};
