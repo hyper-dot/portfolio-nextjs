@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import connect from '@/utils/db';
 import Post from '@/models/Post';
 import slugify from 'slugify';
+import { marked } from 'marked';
 
 export const GET = async (request) => {
   const url = new URL(request.url);
@@ -30,6 +31,7 @@ export const GET = async (request) => {
 
 export const POST = async (req) => {
   const body = await req.json();
+  const parsedHtml = marked.parse(body.content);
   const slug = slugify(body.title, {
     replacement: '-', // replace spaces with replacement character, defaults to `-`
     remove: undefined, // remove characters that match regex, defaults to `undefined`
@@ -38,11 +40,12 @@ export const POST = async (req) => {
     locale: 'vi', // language code of the locale to use
     trim: true, // trim leading and trailing replacement chars, defaults to `true`
   });
+
   const newPost = new Post({
     title: body.title,
     desc: body.desc,
-    img: body.img,
-    content: body.content,
+    markdown: body.content,
+    parsedHtml: parsedHtml,
     slug: slug,
   });
   try {
