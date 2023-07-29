@@ -1,0 +1,103 @@
+:root {
+  /* Light theme colors */
+  --background-light: #ccc;
+  --text-light: #333;
+  --blockquote-border-light: #ddd;
+
+  /* Dark theme colors */
+  --background-dark: #333;
+  --text-dark: #fff;
+  --blockquote-border-dark: #555;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+ul,
+ol {
+  padding: 1rem 2rem;
+}
+
+ul > li {
+  list-style: disc;
+}
+
+ol > li {
+  list-style: decimal;
+}
+
+.content a {
+  color: #5e9cff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+blockquote {
+  /* Default styles for both themes */
+  padding: 10px;
+  border-left: 5px solid var(--blockquote-border-light); /* Light theme border color */
+  background-color: var(--background-light); /* Light theme background color */
+  color: var(--text-light); /* Light theme text color */
+}
+
+/* Styles for blockquote under light theme */
+blockquote {
+  padding: 10px;
+  border-left: 5px solid var(--blockquote-border-light);
+  background-color: var(--background-light);
+  color: var(--text-color-light);
+  border-radius: 5px;
+}
+
+.dark blockquote {
+  border-left-color: var(
+    --blockquote-border-dark
+  ); /* Dark theme border color */
+  background-color: var(--background-dark); /* Dark theme background color */
+  color: var(--text-dark); /* Dark theme text color */
+}
+
+/* Styles for pre under light theme */
+pre {
+  border-radius: 5px;
+  padding: 1rem;
+  /* Add your styles for the pre tag under the light theme */
+  background-color: var(--background-light);
+  color: var(--text-color-light);
+  /* Add other styles as needed */
+}
+
+/* Styles for pre under dark theme */
+.dark pre {
+  /* Add your styles for the pre tag under the dark theme */
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+  /* Add other styles as needed */
+}
+code {
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: var(--background-light);
+  color: var(--text-light);
+}
+.dark code {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
