@@ -94,27 +94,18 @@ pre {
   border-radius: 5px;
   padding: 1rem;
   /* Add your styles for the pre tag under the light theme */
-  background-color: var(--background-light);
-  color: var(--text-color-light);
+  background-color: #1e1e1e;
+  font-style: italic;
   /* Add other styles as needed */
+  overflow-x: scroll;
 }
 
 /* Styles for pre under dark theme */
-.dark pre {
-  /* Add your styles for the pre tag under the dark theme */
-  background-color: var(--background-dark);
-  color: var(--text-dark);
-  /* Add other styles as needed */
-}
 code {
   padding: 3px 5px;
   border-radius: 5px;
-  background-color: var(--background-light);
-  color: var(--text-light);
-}
-.dark code {
-  background-color: var(--background-dark);
-  color: var(--text-dark);
+  background-color: #1e1e1e;
+  color: #7dfff4;
 }
 .content img {
   display: block;

@@ -7,8 +7,8 @@ const page = async ({ params }) => {
   const blog = await getPostByslug(params.slug);
   const markup = { __html: blog.parsedHtml };
   return (
-    <div className='p-10 pt-28 min-h-screen flex flex-wrap items-start justify-center'>
-      <div className='max-w-3xl'>
+    <div className='p-10 pt-28 height-screen  flex flex-wrap items-start justify-center'>
+      <div className='w-full md:max-w-3xl'>
         <p className='text-gray-400 text-sm mb-2'>
           ✍️ {readableDate(blog.createdAt)} by Roshan Paudel
         </p>
