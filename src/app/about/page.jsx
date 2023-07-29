@@ -71,7 +71,7 @@ const AboutPage = () => {
   return (
     <div className='p-10 pt-28 min-h-screen flex items-start justify-center'>
       <div className='max-w-xl'>
-        <h1 className='text-3xl font-semibold mb-4'>About Me😉</h1>
+        <h1 className='text-3xl font-semibold mb-4'>About Me 🧒</h1>
         <p>
           Hi, I am Roshan Paudel, and I've been on a journey as a self-taught
           developer to learn and master the MERN stack technology. While I
