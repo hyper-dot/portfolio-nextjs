@@ -6,7 +6,7 @@ const HomePage = () => {
   const blogs = [
     {
       id: 1,
-      title: 'Blog 1',
+      title: 'Blog 1 ho w nepal will ben in 20002 world order',
       content: 'This is the content of Blog 1',
     },
     {
@@ -50,22 +50,29 @@ const HomePage = () => {
             🔔 Ping Me
           </Link>
 
-          <div className='p-4'>
+          <Link href='/blogs/slug' className='p-4'>
             <h1 className='text-xl font-semibold mt-10 mb-4'>Recent Posts</h1>
             <ul className='grid gap-4'>
               {blogs.map((blog) => (
                 <li
                   key={blog.id}
-                  className='border border-gray-400 p-4 rounded-md'
+                  className='border border-gray-400 transition px-4  rounded-md '
                 >
-                  <h2 className='text-xl font-semibold mb-2'>{blog.title}</h2>
-                  <p className=''>{blog.content}</p>
+                  <small className=''>24 Jan 2020</small>
+                  <h2 className='text-xl font-semibold mb-2'>
+                    Lorem ipsum dolor sit amet, qui minim labore adipisicing
+                    minim sint cillum sint consectetur cupidatat.
+                  </h2>
+                  <p className='mb-4'>
+                    Lorem ipsum dolor sit amet, qui minim labore adipisicing
+                    minim sint cillum sint consectetur cupidatat.
+                  </p>
                 </li>
               ))}
             </ul>
-          </div>
+          </Link>
           <Link
-            className='pl-5 underline underline-offset-4 text-blue-400 font-semibold'
+            className='inline-block mt-2 underline underline-offset-4 text-blue-600 font-semibold'
             href='/blogs'
           >
             More Blogs...
