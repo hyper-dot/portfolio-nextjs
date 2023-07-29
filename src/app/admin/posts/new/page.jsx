@@ -1,16 +1,13 @@
 'use client';
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 const WriteBlogPage = () => {
-  const router = useRouter();
-
+  const [success, setSuccess] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const title = e.target[0].value;
     const desc = e.target[1].value;
-    const img = e.target[2].value;
-    const content = e.target[3].value;
+    const content = e.target[2].value;
     // sending data
     try {
       const res = await fetch('/api/posts', {
@@ -18,11 +15,12 @@ const WriteBlogPage = () => {
         body: JSON.stringify({
           title,
           desc,
-          img,
           content,
         }),
       });
       console.log(res);
+      setSuccess(true);
+      e.target.reset();
     } catch (e) {
       console.log(e);
     }
@@ -55,32 +53,25 @@ const WriteBlogPage = () => {
           />
         </div>
         <div className='mb-4'>
-          <label htmlFor='imageURL' className='block font-semibold mb-2'>
-            Image URL
-          </label>
-          <input
-            type='text'
-            id='imageURL'
-            className='bg-transparent w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring focus:border-blue-500'
-            required
-          />
-        </div>
-        <div className='mb-4'>
           <label htmlFor='content' className='block font-semibold mb-2'>
             Content
           </label>
           <textarea
+            style={{ fontFamily: 'monospace' }}
             id='content'
-            rows={8}
+            rows={20}
             className='bg-transparent w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring focus:border-blue-500'
             required
           />
+        </div>
+        <div className='text-green-500 mb-4'>
+          {success && 'Created blog successfully !!'}
         </div>
         <button
           type='submit'
           className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded'
         >
-          Publish Blog
+          Create
         </button>
       </form>
     </div>
