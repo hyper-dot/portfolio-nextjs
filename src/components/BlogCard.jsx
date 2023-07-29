@@ -6,8 +6,6 @@ const BlogCard = ({ blog }) => {
   return (
     <div className='border max-w-2xl border-gray-400 rounded-md p-4 flex flex-col md:flex-row'>
       <img
-        width={100}
-        height={100}
         src={blog.imageUrl}
         alt={blog.title}
         className='w-full md:w-40 h-30 object-cover rounded-md mr-4'
