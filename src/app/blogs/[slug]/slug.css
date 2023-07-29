@@ -97,7 +97,7 @@ pre {
   background-color: #1e1e1e;
   font-style: italic;
   /* Add other styles as needed */
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 /* Styles for pre under dark theme */

@@ -1,7 +1,6 @@
 import Post from '@/models/Post';
 import { NextResponse } from 'next/server';
 import connect from '@/utils/db';
-import { marked } from 'marked';
 import slugify from 'slugify';
 
 export const GET = async (req, { params }) => {
@@ -31,7 +30,6 @@ export const PUT = async (req, { params }) => {
       trim: true, // trim leading and trailing replacement chars, defaults to `true`
     });
     post.slug = newSlug;
-    post.parsedHtml = marked.parse(body.markdown);
     post.markdown = body.markdown;
     post.title = body.title;
     post.desc = body.desc;

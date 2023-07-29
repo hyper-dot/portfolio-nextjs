@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import connect from '@/utils/db';
 import Post from '@/models/Post';
 import slugify from 'slugify';
-import { marked } from 'marked';
 
 export const GET = async (request) => {
   const url = new URL(request.url);
@@ -31,7 +30,6 @@ export const GET = async (request) => {
 
 export const POST = async (req) => {
   const body = await req.json();
-  const parsedHtml = marked.parse(body.content);
   const slug = slugify(body.title, {
     replacement: '-', // replace spaces with replacement character, defaults to `-`
     remove: undefined, // remove characters that match regex, defaults to `undefined`
@@ -45,7 +43,6 @@ export const POST = async (req) => {
     title: body.title,
     desc: body.desc,
     markdown: body.content,
-    parsedHtml: parsedHtml,
     slug: slug,
   });
   try {

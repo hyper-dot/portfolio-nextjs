@@ -2,10 +2,11 @@ import React from 'react';
 import './slug.css';
 import { getPostByslug } from '@/utils/post';
 import readableDate from '@/utils/readableDate';
+import { marked } from 'marked';
 
 const page = async ({ params }) => {
   const blog = await getPostByslug(params.slug);
-  const markup = { __html: blog.parsedHtml };
+  const markup = { __html: marked.parse(blog.markdown) };
   return (
     <div className='p-10 pt-28 height-screen  flex flex-wrap items-start justify-center'>
       <div className='w-full md:max-w-3xl'>

@@ -16,10 +16,6 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    parsedHtml: {
-      type: String,
-      required: true,
-    },
     slug: {
       type: String,
       required: true,
