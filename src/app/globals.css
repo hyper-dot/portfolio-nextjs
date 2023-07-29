@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: rgb(243, 244, 246);
+}
+
 .theme {
   transition: all 0.2s ease;
 }
@@ -12,6 +16,12 @@
 .dark {
   background-color: #1f1f1f;
   color: rgb(243, 244, 246);
+}
+.height-screen {
+  min-height: 92vh;
+}
+.w50vh {
+  width: 50vw;
 }
 
 /* ======================Waving Animation ========================= */

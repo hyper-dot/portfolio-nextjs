@@ -22,7 +22,7 @@ const HomePage = () => {
   ];
   return (
     <>
-      <div className='p-10 md:pt-28 min-h-screen flex items-center justify-center'>
+      <div className='p-10 pt-28 min-h-screen flex items-start justify-center'>
         <div className='max-w-xl'>
           <Image
             width={50}
@@ -64,6 +64,12 @@ const HomePage = () => {
               ))}
             </ul>
           </div>
+          <Link
+            className='pl-5 underline underline-offset-4 text-blue-400 font-semibold'
+            href='/blogs'
+          >
+            More Blogs...
+          </Link>
         </div>
       </div>
     </>

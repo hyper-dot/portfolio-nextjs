@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const ContactPage = () => {
   return (
-    <div className='p-10 min-h-full md:min-h-screen flex items-center justify-center'>
+    <div className='p-10 pt-28 min-h-screen flex items-start justify-center'>
       <div className='max-w-xl'>
         <h1 className='text-3xl font-semibold mb-4'>Contact Me</h1>
         <form>

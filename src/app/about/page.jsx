@@ -3,15 +3,9 @@ import Image from 'next/image';
 
 const AboutPage = () => {
   return (
-    <div className='p-10 min-h-screen flex items-center justify-center'>
+    <div className='p-10 pt-28 min-h-screen flex items-start justify-center'>
       <div className='max-w-xl'>
         <h1 className='text-3xl font-semibold mb-4'>About Me</h1>
-        <Image
-          width={250}
-          height={250}
-          src='https://i.ibb.co/58m25r2/IMG-0980.jpg'
-          alt='roshan'
-        />
         <p>
           Hi, I'm [Your Name], a passionate developer who is currently learning
           and exploring the world of programming. I love to build web
