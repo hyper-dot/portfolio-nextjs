@@ -43,7 +43,7 @@ const HomePage = async () => {
               <Link href={`blogs/${p.slug}`}>
                 <li
                   key={p._id}
-                  className='border border-gray-400 transition px-4  rounded-md '
+                  className='border border-gray-400 transition px-4 rounded-md '
                 >
                   <small className=''>{readableDate(p.createdAt)}</small>
                   <h2 className='text-xl font-semibold mb-2'>{p.title}</h2>

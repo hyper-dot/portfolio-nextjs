@@ -12,11 +12,11 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    img: {
+    markdown: {
       type: String,
       required: true,
     },
-    content: {
+    parsedHtml: {
       type: String,
       required: true,
     },
