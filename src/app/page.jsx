@@ -23,12 +23,11 @@ const HomePage = async () => {
           </h1>
           <p className=''>
             I am Roshan Paudel, self-taught programming enthusiast from 🇳🇵Nepal
-            with a 💡 thirst for knowledge and a knack for ⚡🧠quick learning.
+            with a thirst for 💡 knowledge and a knack for ⚡🧠quick learning.
             <br />
             Passionate about crafting efficient and elegant solutions to complex
-            challenges. Ready to tackle new opportunities and make an impact
-            with my skills! 💻🔥 Excited to collaborate and build the future
-            together🚀{' '}
+            challenges. 🔥 Ready to tackle new opportunities and collaborate and
+            build the future together 🚀
           </p>
           <Link
             href='/contact'
@@ -47,7 +46,7 @@ const HomePage = async () => {
                 >
                   <small className=''>{readableDate(p.createdAt)}</small>
                   <h2 className='text-xl font-semibold mb-2'>{p.title}</h2>
-                  <p className='mb-4'>{p.desc}</p>
+                  <p className='mb-4 text-sm'>{p.desc}</p>
                 </li>
               </Link>
             ))}

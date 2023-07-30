@@ -1,14 +1,19 @@
 'use client';
-
 import { createContext, useState } from 'react';
 
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [mode, setMode] = useState('light');
+  // Get the theme mode from localStorage or set it to 'light' by default
+  const [mode, setMode] = useState(
+    localStorage.getItem('themeData') || 'light',
+  );
 
   const toggle = () => {
-    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    // Update mode state and store it in localStorage
+    const newMode = mode === 'dark' ? 'light' : 'dark';
+    setMode(newMode);
+    localStorage.setItem('themeData', newMode);
   };
 
   return (

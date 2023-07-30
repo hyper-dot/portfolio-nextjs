@@ -81,12 +81,12 @@ const AboutPage = () => {
           <br />
           Throughout my learning process, I've encountered challenges and
           obstacles, but I've remained committed to improving my skills. Over
-          the past 1.5 years, I've gained knowledge in MongoDB, Express.js,
-          Angular, and Node.js, but I still have much to learn. I've spent
-          countless hours exploring computer science concepts through online
-          resources and tutorials. I'm grateful for the support and guidance
-          I've received from the developer community, which has been
-          instrumental in my progress.
+          the past 1.5 years, I've gained knowledge in HTML, CSS, HTTP, MongoDB,
+          Express.js, ReactJs, NextJs, and much more, but I still have much to
+          learn. I've spent countless hours exploring computer science concepts
+          through online resources and tutorials. I'm grateful for the support
+          and guidance I've received from the developer community, which has
+          been instrumental in my progress.
         </p>
         <div>
           <h2 className='text-2xl font-semibold my-4'>
