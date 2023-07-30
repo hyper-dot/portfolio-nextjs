@@ -45,7 +45,7 @@ const Page = () => {
     const markdown = e.target[2].value;
     console.log({ title, desc, markdown });
     try {
-      const res = axios.put(`/api/posts/${slug}`, formData);
+      await axios.put(`/api/posts/${slug}`, formData);
       router.back();
     } catch (err) {
       console.log(err);
