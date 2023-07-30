@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import Socials from '@/components/Socials';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/context/ThemeContext';
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ThemeProvider>
           <Navbar />
+          <Socials />
           {children}
         </ThemeProvider>
       </body>

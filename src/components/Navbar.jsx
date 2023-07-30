@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   return (
-    <nav className='p-4'>
+    <nav className='pt-4'>
       <div className='flex items-center justify-center'>
         <div className='flex space-x-4'>
           <Link href='/' className='font-semibold hover:text-blue-500'>

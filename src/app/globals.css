@@ -78,3 +78,8 @@ body {
     transform: rotate(0deg);
   }
 }
+
+.dark .card-with-shadow {
+  background-color: #1e1e1e;
+  border-color: #1e1e1e;
+}

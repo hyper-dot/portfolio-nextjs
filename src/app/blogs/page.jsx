@@ -13,7 +13,7 @@ const BlogsShowcasePage = async () => {
           {data.map((post) => (
             <Link
               href={`blogs/${post.slug}`}
-              className='border border-gray-400 transition px-4  rounded-md '
+              className='card-with-shadow  border border-gray-300 shadow-md transition px-4  rounded-md '
               key={post._id}
             >
               <small className=''>{readableDate(post.createdAt)}</small>
