@@ -39,11 +39,8 @@ const HomePage = async () => {
           <h1 className='text-xl font-semibold mt-10 mb-4'>Recent Posts</h1>
           <ul className='grid gap-4'>
             {posts.map((p) => (
-              <Link href={`blogs/${p.slug}`}>
-                <li
-                  key={p._id}
-                  className='card-with-shadow shadow-md border border-gray-300 transition p-4 rounded-md '
-                >
+              <Link key={p._id} href={`blogs/${p.slug}`}>
+                <li className='card-with-shadow shadow-md border border-gray-300 transition p-4 rounded-md '>
                   <small className=''>{readableDate(p.createdAt)}</small>
                   <h2 className='text-xl font-semibold mb-2'>{p.title}</h2>
                   <p className='mb-4 text-sm'>{p.desc}</p>

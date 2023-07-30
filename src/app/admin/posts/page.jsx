@@ -5,8 +5,25 @@ import { BsPencilSquare } from 'react-icons/bs';
 import { RiDeleteBinFill } from 'react-icons/ri';
 import useSWR from 'swr';
 import axios from 'axios';
+import { useSession } from 'next-auth/react';
+import Spinner from '@/components/Spinner';
+import NotAuthorized from '@/components/NotAuthorized';
 
 const page = () => {
+  const session = useSession();
+  console.log(session);
+
+  if (session.status === 'unauthenticated') return <SignInButton />;
+
+  if (
+    session.status === 'authenticated' &&
+    session.data.user.email != 'rozanpoudel@gmail.com'
+  ) {
+    return <NotAuthorized />;
+  }
+
+  if (session.status === 'loading') return <Spinner />;
+
   //NEW WAY TO FETCH DATA
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 

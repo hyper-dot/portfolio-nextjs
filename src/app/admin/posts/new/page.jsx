@@ -1,5 +1,8 @@
 'use client';
 import React, { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import Spinner from '@/components/Spinner';
+import NotAuthorized from '@/components/NotAuthorized';
 
 const WriteBlogPage = () => {
   const [success, setSuccess] = useState(false);
@@ -25,6 +28,20 @@ const WriteBlogPage = () => {
       console.log(e);
     }
   };
+
+  const session = useSession();
+  console.log(session);
+
+  if (session.status === 'unauthenticated') return <SignInButton />;
+
+  if (
+    session.status === 'authenticated' &&
+    session.data.user.email != 'rozanpoudel@gmail.com'
+  ) {
+    return <NotAuthorized />;
+  }
+
+  if (session.status === 'loading') return <Spinner />;
 
   return (
     <div className='p-10 max-w-4xl mx-auto'>

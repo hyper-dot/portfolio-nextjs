@@ -3,6 +3,10 @@ import './slug.css';
 import { getPostByslug } from '@/utils/post';
 import readableDate from '@/utils/readableDate';
 import { marked } from 'marked';
+marked.use({
+  mangle: false,
+  headerIds: false,
+});
 
 const page = async ({ params }) => {
   const blog = await getPostByslug(params.slug);
