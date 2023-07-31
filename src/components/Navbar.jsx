@@ -6,7 +6,7 @@ import { useState } from 'react';
 const Navbar = () => {
   return (
     <>
-      <div className='bg-orange-200 py-4 flex justify-center flex-wrap'>
+      <div className='bg-orange-200 text-black py-4 flex justify-center flex-wrap'>
         ⚠️ Warning ! This site is under construction !!
       </div>
       <nav className='pt-4'>
