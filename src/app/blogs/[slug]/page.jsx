@@ -12,12 +12,10 @@ marked.use({
 // Revalidate in 10 secs
 export const revalidate = 10;
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  // read route params
-  const slug = params.slug;
-
+export async function generateMetadata({ params }) {
   // fetch data
-  const blog = await Post.findOne({ slug: slug });
+  await connect();
+  const blog = await Post.findOne({ slug: params.slug });
 
   return {
     title: blog.title,
