@@ -11,13 +11,14 @@ import NotAuthorized from '@/components/NotAuthorized';
 
 const page = () => {
   const session = useSession();
-  console.log(session);
 
+  // If not authenticated it will render sign in button
   if (session.status === 'unauthenticated') return <SignInButton />;
 
+  // If not authenticated but not admin it will render it will say not NotAuthorized and will provide signout button
   if (
     session.status === 'authenticated' &&
-    session.data.user.email != 'rozanpoudel@gmail.com'
+    session.data.user.email != process.env.NEXT_PUBLIC_ADMIN_EMAIL
   ) {
     return <NotAuthorized />;
   }
@@ -25,16 +26,18 @@ const page = () => {
   if (session.status === 'loading') return <Spinner />;
 
   //NEW WAY TO FETCH DATA
+  //Fetch data if all condition fulfilled
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(`/api/posts`, fetcher);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Spinner />;
   if (error) {
     console.log(error);
     return <div>Error</div>;
   }
 
+  // Delete handler function
   const handleDelete = async (slug) => {
     try {
       await axios.delete(`/api/posts/${slug}`);
