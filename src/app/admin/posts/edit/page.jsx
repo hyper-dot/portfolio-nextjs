@@ -26,6 +26,16 @@ const Page = () => {
       });
   }, []);
 
+  if (!formData) {
+    return (
+      <div className='h-screen'>
+        <div className='h-3/4 flex justify-center items-center text-red-500 text-3xl font-bold'>
+          Are you out of your mind ? There is no post having that slug !!!
+        </div>
+      </div>
+    );
+  }
+
   if (loading) return <Spinner />;
 
   // Event handler for form input changes
