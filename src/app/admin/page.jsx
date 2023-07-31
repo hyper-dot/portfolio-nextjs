@@ -5,6 +5,7 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import Spinner from '@/components/Spinner';
 import SignInButton from '@/components/SignInButton';
 import NotAuthorized from '@/components/NotAuthorized';
+import SignOutButton from '@/components/SignOutButton';
 
 const page = () => {
   const session = useSession();
@@ -13,7 +14,7 @@ const page = () => {
 
   if (
     session.status === 'authenticated' &&
-    session.data.user.email != 'rozanpoudel@gmail.com'
+    session.data.user.email != process.env.NEXT_PUBLIC_ADMIN_EMAIL
   ) {
     return <NotAuthorized />;
   }
@@ -31,12 +32,7 @@ const page = () => {
       >
         See All Projects
       </Link>
-      <button
-        className='px-10 py-2 bg-red-400 rounded-md '
-        onClick={() => signOut()}
-      >
-        Sign Out
-      </button>
+      <SignOutButton />
     </div>
   );
 };
