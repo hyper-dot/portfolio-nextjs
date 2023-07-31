@@ -36,7 +36,7 @@ const WriteBlogPage = () => {
 
   if (
     session.status === 'authenticated' &&
-    session.data.user.email != 'rozanpoudel@gmail.com'
+    session.data.user.email != process.env.ADMIN_EMAIL
   ) {
     return <NotAuthorized />;
   }
