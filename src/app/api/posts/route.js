@@ -40,6 +40,7 @@ export const POST = async (req) => {
     desc: body.desc,
     markdown: body.content,
     slug: slug,
+    keywords: body.keywords,
   });
   try {
     await connect();

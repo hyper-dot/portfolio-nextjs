@@ -8,7 +8,8 @@ const WriteBlogPage = () => {
     e.preventDefault();
     const title = e.target[0].value;
     const desc = e.target[1].value;
-    const content = e.target[2].value;
+    const keywords = e.target[2].value;
+    const content = e.target[3].value;
     // sending data
     try {
       const res = await fetch('/api/posts', {
@@ -17,6 +18,7 @@ const WriteBlogPage = () => {
           title,
           desc,
           content,
+          keywords,
         }),
       });
       console.log(res);
@@ -37,6 +39,18 @@ const WriteBlogPage = () => {
           <input
             type='text'
             id='title'
+            className='bg-transparent w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring focus:border-blue-500'
+            required
+          />
+        </div>
+        <div className='mb-4'>
+          <label htmlFor='keywords' className='block font-semibold mb-2'>
+            Keywords
+          </label>
+          <input
+            type='text'
+            id='keywords'
+            name='keywords'
             className='bg-transparent w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring focus:border-blue-500'
             required
           />

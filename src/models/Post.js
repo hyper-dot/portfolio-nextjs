@@ -12,6 +12,10 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
+    keywords: {
+      type: String,
+      required: true,
+    },
     markdown: {
       type: String,
       required: true,

@@ -4,6 +4,11 @@ import ProjectCard from '@/components/ProjectCard';
 const imgurl =
   'https://images.pexels.com/photos/4439901/pexels-photo-4439901.jpeg';
 
+export const metadata = {
+  title: 'Projects || Roshan Paudel',
+  description: 'projects done by roshan paudel nepal',
+};
+
 const projects = [
   {
     id: 1,

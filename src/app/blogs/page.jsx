@@ -4,9 +4,11 @@ import readableDate from '@/utils/readableDate';
 import Post from '@/models/Post';
 import connect from '@/utils/db';
 
+export const revalidate = 10;
+
 export const metadata = {
-  title: 'Roshan Paudel Blogs',
-  description: 'blogs written by developer of nepal Roshan Paudel',
+  title: 'Blogs || Roshan Paudel',
+  description: 'blogs written by roshan paudel nepal',
 };
 
 const BlogsShowcasePage = async () => {

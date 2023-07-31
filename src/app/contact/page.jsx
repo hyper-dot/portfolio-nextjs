@@ -1,6 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'Contact || Roshan Paudel',
+  description: 'contact of developer roshan paudel nepal',
+};
+
 const ContactPage = () => {
   return (
     <div className='p-10 pt-28 min-h-screen flex items-start justify-center'>

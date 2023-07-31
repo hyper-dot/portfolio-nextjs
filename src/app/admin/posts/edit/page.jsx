@@ -14,6 +14,7 @@ const Page = () => {
   const [formData, setFormData] = useState({
     title: '',
     desc: '',
+    keywords: '',
     markdown: '',
   });
 
@@ -91,6 +92,22 @@ const Page = () => {
                 required
               />
             </div>
+
+            <div className='mb-4'>
+              <label htmlFor='keywords' className='block font-semibold mb-2'>
+                Keywords
+              </label>
+              <input
+                type='text'
+                value={formData.keywords}
+                onChange={handleChange}
+                id='keywords'
+                name='keywords'
+                className='bg-transparent w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring focus:border-blue-500'
+                required
+              />
+            </div>
+
             <div className='mb-4'>
               <label htmlFor='content' className='block font-semibold mb-2'>
                 Content

@@ -9,6 +9,24 @@ marked.use({
   headerIds: false,
 });
 
+// Revalidate in 10 secs
+export const revalidate = 10;
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const slug = params.slug;
+
+  // fetch data
+  const blog = await Post.findOne({ slug: slug });
+
+  return {
+    title: blog.title,
+    description: blog.desc,
+    author: 'Roshan Paudel',
+    keywords: blog.keywords,
+  };
+}
+
 const page = async ({ params }) => {
   await connect();
   const blog = await Post.findOne({ slug: params.slug });

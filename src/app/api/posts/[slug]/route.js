@@ -31,6 +31,7 @@ export const PUT = async (req, { params }) => {
     });
     post.slug = newSlug;
     post.markdown = body.markdown;
+    post.keywords = body.keywords;
     post.title = body.title;
     post.desc = body.desc;
     await post.save();

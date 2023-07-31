@@ -5,6 +5,17 @@ import readableDate from '@/utils/readableDate';
 import Post from '@/models/Post';
 import connect from '@/utils/db';
 
+// Revalidate in 10 secs
+export const revalidate = 10;
+
+export const metadata = {
+  title: 'Roshan Paudel',
+  description:
+    'Hi, I am Roshan Paudel, a self-taught developer with a passion for coding and the MERN stack technology. Learn about my skills in quick learning, problem-solving, version control, troubleshooting, deployment, API integration, Linux, security, and effective use of Artificial Intelligence.',
+  keywords:
+    'Roshan Paudel, self-taught developer, MERN stack, web development, quick learning, problem solving, version control, troubleshooting, deployment, API integration, Linux, security, Artificial Intelligence',
+};
+
 const HomePage = async () => {
   await connect();
   const posts = await Post.find().sort({ createdAt: -1 }).limit(3);

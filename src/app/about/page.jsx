@@ -67,6 +67,14 @@ const technologies = [
   // Add more technologies here as needed
 ];
 
+export const metadata = {
+  title: 'About Me - Roshan Paudel 🧒',
+  description:
+    'Hi, I am Roshan Paudel, a self-taught developer with a passion for coding and the MERN stack technology. Learn about my skills in quick learning, problem-solving, version control, troubleshooting, deployment, API integration, Linux, security, and effective use of Artificial Intelligence.',
+  keywords:
+    'Roshan Paudel, self-taught developer, MERN stack, web development, quick learning, problem solving, version control, troubleshooting, deployment, API integration, Linux, security, Artificial Intelligence',
+};
+
 const AboutPage = () => {
   return (
     <div className='p-10 pt-28 min-h-screen flex items-start justify-center'>
