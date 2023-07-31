@@ -1,0 +1,7 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow certain directories
+Disallow: /admin/
+Disallow: /api/
