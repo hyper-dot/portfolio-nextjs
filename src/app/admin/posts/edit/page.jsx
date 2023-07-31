@@ -2,12 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
+import Spinner from '@/components/Spinner';
 
 const Page = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const slug = searchParams.get('slug');
-  const [success, setSuccess] = useState(false);
 
   // Data fetching
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ const Page = () => {
       });
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner />;
 
   // Event handler for form input changes
   const handleChange = (e) => {
@@ -37,13 +37,9 @@ const Page = () => {
     }));
   };
 
-  // State variables to store form data
+  // Form handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const title = e.target[0].value;
-    const desc = e.target[1].value;
-    const markdown = e.target[2].value;
-    console.log({ title, desc, markdown });
     try {
       await axios.put(`/api/posts/${slug}`, formData);
       router.back();
@@ -100,9 +96,7 @@ const Page = () => {
                 required
               />
             </div>
-            <div className='text-green-500 mb-4'>
-              {success && 'Created blog successfully !!'}
-            </div>
+            <div className='text-green-500 mb-4'></div>
             <button
               type='submit'
               className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded'
