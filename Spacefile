@@ -1,0 +1,7 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: portfolio-next
+    src: ./
+    engine: next
+    primary: true

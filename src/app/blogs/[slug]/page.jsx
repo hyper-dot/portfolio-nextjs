@@ -2,6 +2,7 @@ import React from 'react';
 import Post from '@/models/Post';
 import './slug.css';
 import readableDate from '@/utils/readableDate';
+import connect from '@/utils/db';
 import { marked } from 'marked';
 marked.use({
   mangle: false,
@@ -9,6 +10,7 @@ marked.use({
 });
 
 const page = async ({ params }) => {
+  await connect();
   const blog = await Post.findOne({ slug: params.slug });
 
   const markup = { __html: marked.parse(blog.markdown) };

@@ -33,7 +33,7 @@ const page = () => {
   return (
     <div className='pt-10 min-h-screen flex justify-center'>
       <h1>ALL Posts</h1>
-      <ul className='mt-10'>
+      <ul className='mt-10 max-w-2xl'>
         {data.map((post) => (
           <li className='list-disc mt-2' key={post._id}>
             {post.title}
