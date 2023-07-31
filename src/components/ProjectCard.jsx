@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
+import { AiFillGithub } from 'react-icons/ai';
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className='border border-gray-400  rounded-md p-4'>
+    <div className='card-with-shadow  border bg-white border-gray-200 shadow-md rounded-md p-4'>
       <img
         src={project.imageUrl}
         alt={project.title}
@@ -16,7 +17,7 @@ const ProjectCard = ({ project }) => {
           href={project.demoUrl}
           target='_blank'
           rel='noopener noreferrer'
-          className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-2 rounded mr-2'
+          className='bg-blue-500 hover:bg-blue-600 text-white py-1 px-2 rounded mr-2'
         >
           Live Demo
         </Link>
@@ -24,9 +25,9 @@ const ProjectCard = ({ project }) => {
           href={project.sourceCodeUrl}
           target='_blank'
           rel='noopener noreferrer'
-          className='bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-2 rounded'
+          className='bg-gray-500 hover:bg-gray-600 text-white py-1 px-2 rounded'
         >
-          Source Code
+          <AiFillGithub className='inline mb-1' /> Source Code
         </Link>
       </div>
     </div>

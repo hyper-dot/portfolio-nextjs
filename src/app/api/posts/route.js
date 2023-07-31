@@ -3,6 +3,10 @@ import connect from '@/utils/db';
 import Post from '@/models/Post';
 import slugify from 'slugify';
 
+//auth
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '../auth/[...nextauth]/route';
+
 export const GET = async (request) => {
   const url = new URL(request.url);
   const count = url.searchParams.get('count');
@@ -29,6 +33,12 @@ export const GET = async (request) => {
 };
 
 export const POST = async (req) => {
+  const session = await getServerSession(authOptions);
+
+  if (!session || session.user.email != process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
+    return new NextResponse('Not Authorized!!', { status: 401 });
+  }
+
   const body = await req.json();
   const slug = slugify(body.title, {
     replacement: '-', // replace spaces with replacement character, defaults to `-`

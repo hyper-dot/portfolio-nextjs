@@ -5,26 +5,9 @@ import { BsPencilSquare } from 'react-icons/bs';
 import { RiDeleteBinFill } from 'react-icons/ri';
 import useSWR from 'swr';
 import axios from 'axios';
-import { useSession } from 'next-auth/react';
 import Spinner from '@/components/Spinner';
-import NotAuthorized from '@/components/NotAuthorized';
 
 const page = () => {
-  const session = useSession();
-
-  // If not authenticated it will render sign in button
-  if (session.status === 'unauthenticated') return <SignInButton />;
-
-  // If not authenticated but not admin it will render it will say not NotAuthorized and will provide signout button
-  if (
-    session.status === 'authenticated' &&
-    session.data.user.email != process.env.NEXT_PUBLIC_ADMIN_EMAIL
-  ) {
-    return <NotAuthorized />;
-  }
-
-  if (session.status === 'loading') return <Spinner />;
-
   //NEW WAY TO FETCH DATA
   //Fetch data if all condition fulfilled
   const fetcher = (...args) => fetch(...args).then((res) => res.json());

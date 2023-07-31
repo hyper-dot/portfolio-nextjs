@@ -1,11 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import { useSession } from 'next-auth/react';
-import Spinner from '@/components/Spinner';
-import NotAuthorized from '@/components/NotAuthorized';
+import { useRouter } from 'next/navigation';
 
 const WriteBlogPage = () => {
-  const [success, setSuccess] = useState(false);
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const title = e.target[0].value;
@@ -22,26 +20,11 @@ const WriteBlogPage = () => {
         }),
       });
       console.log(res);
-      setSuccess(true);
-      e.target.reset();
+      router.push('/admin/posts');
     } catch (e) {
       console.log(e);
     }
   };
-
-  const session = useSession();
-  console.log(session);
-
-  if (session.status === 'unauthenticated') return <SignInButton />;
-
-  if (
-    session.status === 'authenticated' &&
-    session.data.user.email != process.env.ADMIN_EMAIL
-  ) {
-    return <NotAuthorized />;
-  }
-
-  if (session.status === 'loading') return <Spinner />;
 
   return (
     <div className='p-10 max-w-4xl mx-auto'>
@@ -81,9 +64,7 @@ const WriteBlogPage = () => {
             required
           />
         </div>
-        <div className='text-green-500 mb-4'>
-          {success && 'Created blog successfully !!'}
-        </div>
+        <div className='text-green-500 mb-4'></div>
         <button
           type='submit'
           className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded'

@@ -93,8 +93,8 @@ const AboutPage = () => {
             Skills That I have Aquired 🎯💪
           </h2>
           {skills.map((s) => (
-            <ul className='pl-4'>
-              <li className='card-with-shadow p-4 rounded-md border border-gray-300 shadow-md list-disc my-4'>
+            <ul className=''>
+              <li className='card-with-shadow p-4 rounded-md border border-gray-300 shadow-md my-4'>
                 <span className='text-lg font-semibold'>{s.title} : </span>
                 <span className='text-sm'>{s.desc}</span>
               </li>
