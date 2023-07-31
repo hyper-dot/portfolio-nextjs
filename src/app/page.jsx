@@ -14,6 +14,9 @@ export const metadata = {
     'Hi, I am Roshan Paudel, a self-taught developer with a passion for coding and the MERN stack technology. Learn about my skills in quick learning, problem-solving, version control, troubleshooting, deployment, API integration, Linux, security, and effective use of Artificial Intelligence.',
   keywords:
     'Roshan Paudel, self-taught developer, MERN stack, web development, quick learning, problem solving, version control, troubleshooting, deployment, API integration, Linux, security, Artificial Intelligence',
+  openGraph: {
+    images: ['../../public/metadata.png'],
+  },
 };
 
 const HomePage = async () => {

@@ -75,3 +75,8 @@
   background-color: #1e1e1e;
   border-color: #1e1e1e;
 }
+
+.not-found {
+  height: 70vh;
+  width: 100%;
+}
