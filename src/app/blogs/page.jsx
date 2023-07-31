@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { getAllPosts } from '@/utils/post';
 import readableDate from '@/utils/readableDate';
+import Post from '@/models/Post';
+import connect from '@/utils/db';
 
 export const metadata = {
   title: 'Roshan Paudel Blogs',
@@ -9,7 +10,8 @@ export const metadata = {
 };
 
 const BlogsShowcasePage = async () => {
-  const data = await getAllPosts();
+  await connect();
+  const data = await Post.find();
   return (
     <div className='p-10 pt-28 height-screen flex flex-wrap items-start justify-center'>
       <div className='max-w-2xl mx-auto'>

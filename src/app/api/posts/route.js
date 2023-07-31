@@ -7,28 +7,14 @@ import slugify from 'slugify';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../auth/[...nextauth]/route';
 
-export const GET = async (request) => {
-  const url = new URL(request.url);
-  const count = url.searchParams.get('count');
-
-  if (count) {
-    try {
-      await connect();
-      const posts = await Post.find().sort({ createdAt: -1 }).limit(3);
-      return new NextResponse(JSON.stringify(posts));
-    } catch (err) {
-      console.log(err);
-      return new NextResponse('cannot fetch the post', { status: 500 });
-    }
-  } else {
-    try {
-      await connect();
-      const posts = await Post.find();
-      return new NextResponse(JSON.stringify(posts));
-    } catch (err) {
-      console.log(err);
-      return new NextResponse('cannot fetch the post', { status: 500 });
-    }
+export const GET = async () => {
+  try {
+    await connect();
+    const posts = await Post.find();
+    return new NextResponse(JSON.stringify(posts));
+  } catch (err) {
+    console.log(err);
+    return new NextResponse('cannot fetch the post', { status: 500 });
   }
 };
 

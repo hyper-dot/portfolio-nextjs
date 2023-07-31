@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getRecentPosts } from '@/utils/post';
 import readableDate from '@/utils/readableDate';
+import Post from '@/models/Post';
+import connect from '@/utils/db';
 
 const HomePage = async () => {
-  const posts = await getRecentPosts();
+  await connect();
+  const posts = await Post.find().sort({ createdAt: -1 }).limit(3);
 
   return (
     <>

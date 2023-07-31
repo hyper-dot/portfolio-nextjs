@@ -1,6 +1,6 @@
 import React from 'react';
+import Post from '@/models/Post';
 import './slug.css';
-import { getPostByslug } from '@/utils/post';
 import readableDate from '@/utils/readableDate';
 import { marked } from 'marked';
 marked.use({
@@ -9,7 +9,8 @@ marked.use({
 });
 
 const page = async ({ params }) => {
-  const blog = await getPostByslug(params.slug);
+  const blog = await Post.findOne({ slug: params.slug });
+
   const markup = { __html: marked.parse(blog.markdown) };
   return (
     <div className='p-10 pt-28 height-screen  flex flex-wrap items-start justify-center'>
