@@ -8,8 +8,9 @@ import {
   BiLogoGoLang,
 } from 'react-icons/bi';
 import { SiExpress, SiNeovim } from 'react-icons/si';
-import { FaNode } from 'react-icons/fa';
+import { FaNode, FaLinux } from 'react-icons/fa';
 import { BsGit } from 'react-icons/bs';
+import { TbBrandNextjs } from 'react-icons/tb';
 
 const skills = [
   {
@@ -57,6 +58,7 @@ const technologies = [
   { name: 'MongoDB', emoji: <BiLogoMongodb /> },
   { name: 'Express.js', emoji: <SiExpress /> },
   { name: 'React', emoji: <BiLogoReact /> },
+  { name: 'NextJs', emoji: <TbBrandNextjs /> },
   { name: 'Node.js', emoji: <FaNode /> },
   { name: 'Git', emoji: <BsGit /> },
   { name: 'JavaScript', emoji: <BiLogoJavascript /> },
@@ -64,6 +66,7 @@ const technologies = [
   { name: 'HTML', emoji: <BiLogoHtml5 /> },
   { name: 'Neovim', emoji: <SiNeovim /> },
   { name: 'Go (Golang)', emoji: <BiLogoGoLang /> },
+  { name: 'Linux', emoji: <FaLinux /> },
   // Add more technologies here as needed
 ];
 
