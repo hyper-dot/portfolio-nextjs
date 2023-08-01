@@ -27,7 +27,6 @@ const page = async ({ params }) => {
   await connect();
   const blog = await Post.findOne({ slug: params.slug });
 
-  const markup = { __html: marked.parse(blog.markdown) };
   return (
     <div className='p-10 pt-28 height-screen  flex flex-wrap items-start justify-center'>
       <div className='w-full md:max-w-3xl'>
@@ -35,7 +34,10 @@ const page = async ({ params }) => {
           ✍️ {readableDate(blog.createdAt)} by Roshan Paudel
         </p>
         <h1 className='text-3xl font-semibold mb-4'>{blog.title}</h1>
-        <div className='content mb-4' dangerouslySetInnerHTML={markup}></div>
+        <div
+          className='content mb-4'
+          dangerouslySetInnerHTML={{ __html: blog.parsedHtml }}
+        ></div>
       </div>
     </div>
   );

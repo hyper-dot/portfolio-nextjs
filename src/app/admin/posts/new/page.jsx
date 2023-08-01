@@ -9,7 +9,7 @@ const WriteBlogPage = () => {
     const title = e.target[0].value;
     const desc = e.target[1].value;
     const keywords = e.target[2].value;
-    const content = e.target[3].value;
+    const markdown = e.target[3].value;
     // sending data
     try {
       const res = await fetch('/api/posts', {
@@ -17,7 +17,7 @@ const WriteBlogPage = () => {
         body: JSON.stringify({
           title,
           desc,
-          content,
+          markdown,
           keywords,
         }),
       });
@@ -67,12 +67,13 @@ const WriteBlogPage = () => {
           />
         </div>
         <div className='mb-4'>
-          <label htmlFor='content' className='block font-semibold mb-2'>
-            Content
+          <label htmlFor='markdown' className='block font-semibold mb-2'>
+            Markdown
           </label>
           <textarea
             style={{ fontFamily: 'monospace' }}
-            id='content'
+            id='markdown'
+            name='markdown'
             rows={20}
             className='bg-transparent w-full px-4 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring focus:border-blue-500'
             required

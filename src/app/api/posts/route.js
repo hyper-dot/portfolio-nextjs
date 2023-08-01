@@ -3,6 +3,12 @@ import connect from '@/utils/db';
 import Post from '@/models/Post';
 import slugify from 'slugify';
 
+import { marked } from 'marked';
+marked.use({
+  mangle: false,
+  headerIds: false,
+});
+
 //auth
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../auth/[...nextauth]/route';
@@ -35,10 +41,14 @@ export const POST = async (req) => {
     trim: true, // trim leading and trailing replacement chars, defaults to `true`
   });
 
+  // Parse markdown
+  const parsedHtml = marked.parse(body.markdown);
+
   const newPost = new Post({
     title: body.title,
     desc: body.desc,
-    markdown: body.content,
+    markdown: body.markdown,
+    parsedHtml: parsedHtml,
     slug: slug,
     keywords: body.keywords,
   });

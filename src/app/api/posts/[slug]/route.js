@@ -2,6 +2,11 @@ import Post from '@/models/Post';
 import { NextResponse } from 'next/server';
 import connect from '@/utils/db';
 import slugify from 'slugify';
+import { marked } from 'marked';
+marked.use({
+  mangle: false,
+  headerIds: false,
+});
 
 export const GET = async (req, { params }) => {
   const { slug } = params;
@@ -29,8 +34,11 @@ export const PUT = async (req, { params }) => {
       locale: 'vi', // language code of the locale to use
       trim: true, // trim leading and trailing replacement chars, defaults to `true`
     });
+    const parsedHtml = marked.parse(post.markdown);
+
     post.slug = newSlug;
     post.markdown = body.markdown;
+    post.parsedHtml = parsedHtml;
     post.keywords = body.keywords;
     post.title = body.title;
     post.desc = body.desc;
