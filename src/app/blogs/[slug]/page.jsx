@@ -10,7 +10,7 @@ marked.use({
 });
 
 // Revalidate in 10 secs
-export const revalidate = 10;
+export const revalidate = 43200;
 
 export async function generateMetadata({ params }) {
   await connect();
