@@ -34,11 +34,11 @@ export const PUT = async (req, { params }) => {
       locale: 'vi', // language code of the locale to use
       trim: true, // trim leading and trailing replacement chars, defaults to `true`
     });
-    const parsedHtml = marked.parse(post.markdown);
 
+    const parsedHtml = marked.parse(body.markdown);
+    post.parsedHtml = parsedHtml;
     post.slug = newSlug;
     post.markdown = body.markdown;
-    post.parsedHtml = parsedHtml;
     post.keywords = body.keywords;
     post.title = body.title;
     post.desc = body.desc;
