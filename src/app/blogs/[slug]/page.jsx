@@ -3,7 +3,6 @@ import Post from '@/models/Post';
 import './slug.css';
 import readableDate from '@/utils/readableDate';
 import connect from '@/utils/db';
-import { GetPosts } from '@/components/GetPost';
 import { marked } from 'marked';
 marked.use({
   mangle: false,
@@ -14,7 +13,8 @@ marked.use({
 export const revalidate = 10;
 
 export async function generateMetadata({ params }) {
-  const blog = await GetPosts(params.slug);
+  await connect();
+  const blog = await Post.findOne({ slug: params.slug });
   return {
     title: blog.title,
     description: blog.desc,
