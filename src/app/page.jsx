@@ -45,9 +45,10 @@ const HomePage = async () => {
             I am Roshan Paudel, computer science enthusiast from 🇳🇵Nepal with a
             thirst for 💡 knowledge and a knack for ⚡🧠quick learning.
             <br />
-            Passionate about crafting efficient and elegant solutions to complex
-            challenges. 🔥 Ready to tackle new opportunities and collaborate and
-            build the future together 🚀
+            Whether you're a potential client, collaborator, or fellow
+            developer, I'm always open to new connections and 🔥 exciting
+            projects. Let's discuss how we can create something exceptional
+            together 🚀
           </p>
           <Link
             href='/contact'
