@@ -43,9 +43,7 @@ const page = () => {
           },
         },
       );
-      setLoading(false);
       console.log(res);
-      console.log(process.env.NEXT_PUBLIC_IMAGE_TOKEN);
       notify(res.data.message);
       if (res.data.message === 'success') {
         setSuccess(true);
@@ -65,6 +63,8 @@ const page = () => {
       setFail(true);
       notify(`Couldn't Send the Data to the Server !!`);
       console.error('Error uploading data:', error);
+    } finally {
+      setLoading(false);
     }
   }
 
