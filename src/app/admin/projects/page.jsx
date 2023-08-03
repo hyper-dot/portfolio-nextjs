@@ -1,12 +1,11 @@
 'use client';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BsPencilSquare } from 'react-icons/bs';
 import { RiDeleteBinFill } from 'react-icons/ri';
 import useSWR from 'swr';
 import axios from 'axios';
 import Spinner from '@/components/Spinner';
-import React from 'react';
 
 const page = () => {
   //NEW WAY TO FETCH DATA
