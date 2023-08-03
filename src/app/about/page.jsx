@@ -84,11 +84,10 @@ const AboutPage = () => {
       <div className='max-w-xl'>
         <h1 className='text-3xl font-semibold mb-4'>About Me 🧒</h1>
         <p>
-          Hi, I am Roshan Paudel, and I've been on a journey as a self-taught
-          developer to learn and master the MERN stack technology. While I
-          didn't have a formal computer science background, I was driven by a
-          deep curiosity and passion for coding, which led me to explore the
-          world of web development.
+          Hi, I am Roshan Paudel, and I've been on a journey to learn and master
+          the MERN stack technology. While I didn't have a formal computer
+          science background, I was driven by a deep curiosity and passion for
+          coding, which led me to explore the world of web development.
           <br />
           Throughout my learning process, I've encountered challenges and
           obstacles, but I've remained committed to improving my skills. Over
