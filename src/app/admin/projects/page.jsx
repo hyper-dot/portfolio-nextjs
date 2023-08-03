@@ -7,7 +7,6 @@ import useSWR from 'swr';
 import axios from 'axios';
 import Spinner from '@/components/Spinner';
 import React from 'react';
-import Link from 'next/link';
 
 const page = () => {
   //NEW WAY TO FETCH DATA
