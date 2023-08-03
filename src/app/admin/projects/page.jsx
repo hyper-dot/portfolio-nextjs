@@ -28,6 +28,11 @@ const page = () => {
     try {
       await axios.delete(
         `${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects/${id}`,
+        {
+          headers: {
+            Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+          },
+        },
       );
       mutate();
     } catch (err) {

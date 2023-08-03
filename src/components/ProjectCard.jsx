@@ -11,24 +11,24 @@ const ProjectCard = ({ project }) => {
         className='w-full h-40 object-cover rounded-md mb-4'
       />
       <h2 className='text-xl font-semibold'>{project.title}</h2>
-      <p className=''>{project.description}</p>
+      <p className=''>{project.desc}</p>
       <div className='mt-4'>
-        <Link
-          href={project.demoUrl}
+        <a
+          href={project.liveUrl}
           target='_blank'
           rel='noopener noreferrer'
           className='bg-blue-500 hover:bg-blue-600 text-white py-1 px-2 rounded mr-2'
         >
-          Live Demo
-        </Link>
-        <Link
-          href={project.sourceCodeUrl}
+          Demo
+        </a>
+        <a
+          href={project.githubUrl}
           target='_blank'
           rel='noopener noreferrer'
           className='bg-gray-500 hover:bg-gray-600 text-white py-1 px-2 rounded'
         >
           <AiFillGithub className='inline mb-1' /> Source Code
-        </Link>
+        </a>
       </div>
     </div>
   );
