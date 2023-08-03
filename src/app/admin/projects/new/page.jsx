@@ -34,7 +34,7 @@ const page = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `http://localhost:8080/api/projects`,
+        `${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects`,
         formData,
         {
           headers: {
