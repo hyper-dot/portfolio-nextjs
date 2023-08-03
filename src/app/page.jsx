@@ -42,13 +42,14 @@ const HomePage = async () => {
             Hi there, <span className='wave'>👋</span>
           </h1>
           <p className=''>
-            I am Roshan Paudel, computer science enthusiast from 🇳🇵Nepal with a
-            thirst for 💡 knowledge and a knack for ⚡🧠quick learning.
+            I am Roshan Paudel, computer science enthusiast with a thirst for
+            knowledge💡 and a knack for quick⚡learning.
             <br />
-            Whether you're a potential client, collaborator, or fellow
-            developer, I'm always open to new connections and 🔥 exciting
-            projects. Let's discuss how we can create something exceptional
-            together 🚀
+            <br />
+            Whether you're a <strong>potential client</strong>,{' '}
+            <strong>collaborator</strong>, or <strong>fellow developer</strong>,
+            I'm always open to new connections and 🔥 exciting projects. Let's
+            discuss how we can create something exceptional together 🚀
           </p>
           <Link
             href='/contact'
