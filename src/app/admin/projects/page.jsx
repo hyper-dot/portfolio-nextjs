@@ -13,7 +13,7 @@ const page = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(
-    `https://imageserver-1-r6781895.deta.app/api/projects`,
+    `${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects`,
     fetcher,
   );
 
@@ -24,9 +24,11 @@ const page = () => {
   }
 
   // Delete handler function
-  const handleDelete = async (slug) => {
+  const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/posts/${slug}`);
+      await axios.delete(
+        `${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects/${id}`,
+      );
       mutate();
     } catch (err) {
       console.log(err);
@@ -36,20 +38,20 @@ const page = () => {
   return (
     <>
       <div className='pt-10 min-h-screen flex justify-center'>
-        <h1>ALL Posts</h1>
+        <h1>ALL Projects</h1>
         <ul className='mt-10 max-w-2xl'>
           {data.map((project) => (
             <li className='list-disc mt-2' key={project._id}>
               {project.title}
               <Link
                 className='ml-4 text-xl inline-block hover:text-blue-600'
-                href={`/admin/posts/edit`}
+                href={`/admin/projects/edit?id=${project._id}`}
               >
                 <BsPencilSquare />
               </Link>
               <button
                 className='text-xl ml-4 inline-block hover:text-red-600'
-                onClick={() => handleDelete()}
+                onClick={() => handleDelete(project._id)}
               >
                 <RiDeleteBinFill />
               </button>
