@@ -34,7 +34,7 @@ const HomePage = async () => {
           <Image
             width={50}
             height={50}
-            src='https://i.ibb.co/ZMDNBhS/hi.png'
+            src='https://i.ibb.co/C7691ZL/untitled.png'
             alt='roshan'
             className='border-2 border-gray-400 rounded-full h-16 w-16 object-contain mb-4'
           />
