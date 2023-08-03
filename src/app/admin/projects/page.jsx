@@ -6,6 +6,10 @@ import { RiDeleteBinFill } from 'react-icons/ri';
 import useSWR from 'swr';
 import axios from 'axios';
 import Spinner from '@/components/Spinner';
+=======
+import React from 'react';
+import Link from 'next/link';
+
 
 const page = () => {
   //NEW WAY TO FETCH DATA
@@ -34,6 +38,7 @@ const page = () => {
   };
 
   return (
+
     <div className='pt-10 min-h-screen flex justify-center'>
       <h1>ALL Posts</h1>
       <ul className='mt-10 max-w-2xl'>
@@ -61,6 +66,11 @@ const page = () => {
       >
         Create New Project
       </Link>
+=======
+    <div>
+      <h2>All Projects</h2>
+      <Link href='/admin/projects/new'>Add New Project</Link>
+
     </div>
   );
 };
