@@ -4,7 +4,7 @@ import { AiFillGithub } from 'react-icons/ai';
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className='card-with-shadow  border bg-white border-gray-200 shadow-md rounded-md p-4'>
+    <div className='card-with-shadow shadow-pop border bg-white rounded-md p-4'>
       <img
         src={project.imageUrl}
         alt={project.title}

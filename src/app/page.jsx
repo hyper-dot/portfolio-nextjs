@@ -53,7 +53,7 @@ const HomePage = async () => {
           </p>
           <Link
             href='/contact'
-            className='inline-block mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded'
+            className='inline-block mt-4 bg-blue-600 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded'
           >
             🔔 Ping Me
           </Link>
@@ -62,7 +62,7 @@ const HomePage = async () => {
           <ul className='grid gap-4'>
             {posts.map((p) => (
               <Link key={p._id} href={`blogs/${p.slug}`}>
-                <li className='card-with-shadow bg-white shadow-md border border-gray-300 transition p-4 rounded-md '>
+                <li className='card-with-shadow shadow-pop bg-white transition p-4 rounded-md '>
                   <small className=''>{readableDate(p.createdAt)}</small>
                   <h2 className='text-xl font-semibold mb-2'>{p.title}</h2>
                   <p className='mb-4 text-sm'>{p.desc}</p>

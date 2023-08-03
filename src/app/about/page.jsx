@@ -55,18 +55,76 @@ const skills = [
 ];
 
 const technologies = [
-  { name: 'MongoDB', emoji: <BiLogoMongodb /> },
-  { name: 'Express.js', emoji: <SiExpress /> },
-  { name: 'React', emoji: <BiLogoReact /> },
-  { name: 'NextJs', emoji: <TbBrandNextjs /> },
-  { name: 'Node.js', emoji: <FaNode /> },
-  { name: 'Git', emoji: <BsGit /> },
-  { name: 'JavaScript', emoji: <BiLogoJavascript /> },
-  { name: 'CSS', emoji: <BiLogoCss3 /> },
-  { name: 'HTML', emoji: <BiLogoHtml5 /> },
-  { name: 'Neovim', emoji: <SiNeovim /> },
-  { name: 'Go (Golang)', emoji: <BiLogoGoLang /> },
-  { name: 'Linux', emoji: <FaLinux /> },
+  {
+    name: 'MongoDB',
+    emoji: <BiLogoMongodb />,
+    desc: 'A NoSQL database that stores data in flexible JSON-like documents, commonly used for scalable and dynamic applications',
+    color: 'text-green-500',
+  },
+  {
+    name: 'Express.js',
+    emoji: <SiExpress />,
+    desc: 'A popular Node.js web framework that simplifies server-side development and enables building robust APIs and web applications',
+  },
+  {
+    name: 'React',
+    emoji: <BiLogoReact />,
+    desc: 'A JavaScript library for building interactive user interfaces, widely used for creating fast and reusable UI components',
+    color: 'text-blue-500',
+  },
+  {
+    name: 'NextJs',
+    emoji: <TbBrandNextjs />,
+    desc: 'A framework for server-rendered React applications that provides features like static site generation and server-side rendering',
+  },
+  {
+    name: 'Node.js',
+    emoji: <FaNode />,
+    desc: 'An open-source, event-driven runtime environment that allows executing JavaScript code on the server-side, ideal for building scalable network applications',
+    color: 'text-green-500',
+  },
+  {
+    name: 'Git',
+    emoji: <BsGit />,
+    desc: 'A distributed version control system for tracking changes in source code, facilitating collaboration and code management in software projects',
+    color: 'text-orange-500',
+  },
+  {
+    name: 'JavaScript',
+    emoji: <BiLogoJavascript />,
+    desc: 'A high-level, interpreted programming language that powers dynamic behavior and interactivity on web pages and applications',
+    color: 'text-yellow-500',
+  },
+  {
+    name: 'CSS',
+    emoji: <BiLogoCss3 />,
+    desc: 'Cascading Style Sheets, used to control the presentation and layout of HTML elements, enhancing the visual appearance of web pages',
+    color: 'text-yellow-500',
+  },
+  {
+    name: 'HTML',
+    emoji: <BiLogoHtml5 />,
+    desc: 'Hypertext Markup Language, the standard language for creating and structuring web content, forming the foundation of web pages',
+    color: 'text-orange-500',
+  },
+  {
+    name: 'Neovim',
+    emoji: <SiNeovim />,
+    desc: 'A modern text editor and improved version of Vim, designed for efficient and extensible code editing and development workflows',
+    color: 'text-green-500',
+  },
+  {
+    name: 'Go (Golang)',
+    emoji: <BiLogoGoLang />,
+    desc: 'A statically typed, compiled language known for its simplicity, performance, and concurrency support, suitable for system-level programming',
+    color: 'text-blue-500',
+  },
+  {
+    name: 'Linux',
+    emoji: <FaLinux />,
+    desc: 'An open-source operating system kernel widely used in various distributions, providing a stable and secure environment for software development and deployment',
+  },
+
   // Add more technologies here as needed
 ];
 
@@ -104,7 +162,7 @@ const AboutPage = () => {
           </h2>
           {skills.map((s) => (
             <ul className=''>
-              <li className='card-with-shadow p-4 rounded-md border border-gray-300 shadow-md my-4'>
+              <li className='card-with-shadow shadow-pop p-4 rounded-md shadow-md my-4'>
                 <span className='text-lg font-semibold'>{s.title} : </span>
                 <span className='text-sm'>{s.desc}</span>
               </li>
@@ -112,17 +170,22 @@ const AboutPage = () => {
           ))}
         </div>
         <div className='mt-10'>
-          <h2 className='text-2xl font-semibold my-4'>
+          <h2 className='text-2xl font-semibold my-4 mx-auto'>
             Tecnnology Stacks Under My Belt 💻 🛠️
           </h2>
-          <div className='max-w-md grid grid-cols-1 sm:grid-cols-2 gap-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             {technologies.map((tech) => (
               <div
                 key={tech.name}
-                className='border card-with-shadow  border-gray-300 rounded-md shadow-lg py-4 p-2 flex items-center justify-center cursor-pointer'
+                className='card-with-shadow shadow-pop rounded-md py-4 p-2 flex flex-col items-center justify-center cursor-pointer'
               >
-                <span className='text-2xl'>{tech.emoji}</span>
-                <span className='text-lg font-semibold'>{tech.name}</span>
+                <span className={`text-6xl ${tech.color ? tech.color : ''}`}>
+                  {tech.emoji}
+                </span>
+                <span className='text-lg font-semibold mt-2'>{tech.name}</span>
+                <p className='desc text-sm text-center text-gray-800 p-2'>
+                  {tech.desc}
+                </p>
               </div>
             ))}
           </div>
