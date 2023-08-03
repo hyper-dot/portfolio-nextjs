@@ -45,6 +45,7 @@ const page = () => {
       );
       setLoading(false);
       console.log(res);
+      console.log(process.env.NEXT_PUBLIC_IMAGE_TOKEN);
       notify(res.data.message);
       if (res.data.message === 'success') {
         setSuccess(true);
