@@ -39,7 +39,7 @@ const page = () => {
         {
           headers: {
             'Content-Type': 'multipart/form-data',
-            Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+            Authorization: 'hello',
           },
         },
       );
