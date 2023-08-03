@@ -15,7 +15,11 @@ export const metadata = {
   keywords:
     'Roshan Paudel, self-taught developer, MERN stack, web development, quick learning, problem solving, version control, troubleshooting, deployment, API integration, Linux, security, Artificial Intelligence',
   openGraph: {
-    images: './opengraph-image.png',
+    images: {
+      url: './opengraph-image.png',
+      width: 800,
+      height: 800,
+    },
   },
 };
 
