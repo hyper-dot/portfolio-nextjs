@@ -186,10 +186,7 @@ const AboutPage = () => {
           </h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             {technologies.map((tech) => (
-              <div
-                key={tech.name}
-                className='card-with-shadow shadow-pop rounded-md py-4 p-2 flex flex-col items-center justify-center cursor-pointer'
-              >
+              <div className='card-with-shadow shadow-pop rounded-md py-4 p-2 flex flex-col items-center justify-center cursor-pointer'>
                 <span className={`text-6xl ${tech.color ? tech.color : ''}`}>
                   {tech.emoji}
                 </span>

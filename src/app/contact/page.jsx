@@ -25,6 +25,9 @@ const ContactPage = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
+    console.log(NEXT_PUBLIC_YOUR_SERVICE_ID);
+    console.log(NEXT_PUBLIC_YOUR_TEMPLATE_ID);
+    console.log(NEXT_PUBLIC_YOUR_PUBLIC_KEY);
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_YOUR_SERVICE_ID,
