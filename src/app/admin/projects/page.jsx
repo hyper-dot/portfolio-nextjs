@@ -70,10 +70,6 @@ const page = () => {
           Create New Project
         </Link>
       </div>
-      <div>
-        <h2>All Projects</h2>
-        <Link href='/admin/projects/new'>Add New Project</Link>
-      </div>
     </>
   );
 };

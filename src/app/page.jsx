@@ -53,7 +53,7 @@ const HomePage = async () => {
           </p>
           <Link
             href='/contact'
-            className='inline-block mt-4 bg-blue-600 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded'
+            className='inline-block mt-4 bg-blue-600 hover:bg-blue-400 text-white font-semibold py-2 px-4 rounded'
           >
             🔔 Ping Me
           </Link>
