@@ -25,10 +25,6 @@ const ContactPage = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log(process.env.NEXT_PUBLIC_YOUR_SERVICE_ID);
-    console.log(process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID);
-    console.log(process.env.NEXT_PUBLIC_YOUR_PUBLIC_KEY);
-    console.log('just changes');
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_YOUR_SERVICE_ID,
@@ -38,13 +34,11 @@ const ContactPage = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
           setSuccess(true);
           notify('Sent !!');
           setLoading(false);
         },
         (error) => {
-          console.log(error.text);
           setFail(true);
           notify('Error !!');
           setLoading(false);
