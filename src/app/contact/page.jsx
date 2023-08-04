@@ -28,6 +28,7 @@ const ContactPage = () => {
     console.log(process.env.NEXT_PUBLIC_YOUR_SERVICE_ID);
     console.log(process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID);
     console.log(process.env.NEXT_PUBLIC_YOUR_PUBLIC_KEY);
+    console.log('just changes');
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_YOUR_SERVICE_ID,
