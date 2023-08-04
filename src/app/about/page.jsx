@@ -139,7 +139,7 @@ export const metadata = {
 const AboutPage = () => {
   return (
     <div className='p-10 pt-28 min-h-screen flex items-start justify-center'>
-      <div className='max-w-xl'>
+      <div className='max-w-2xl'>
         <h1 className='text-3xl font-semibold mb-4'>About Me 🧒</h1>
         <p>
           Hi, I am Roshan Paudel, and I've been on a journey to learn and master
@@ -157,21 +157,25 @@ const AboutPage = () => {
           been instrumental in my progress.
         </p>
         <div>
-          <h2 className='text-2xl font-semibold my-4'>
+          <h2 className='text-2xl font-semibold my-4 mt-8 text-center'>
             Skills That I have Aquired 🎯💪
           </h2>
-          {skills.map((s) => (
-            <ul className=''>
-              <li className='card-with-shadow shadow-pop p-4 rounded-md shadow-md my-4'>
-                <span className='text-lg font-semibold'>{s.title} : </span>
-                <span className='text-sm'>{s.desc}</span>
-              </li>
-            </ul>
-          ))}
+          <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
+            {skills.map((s) => (
+              <div className='card-with-shadow shadow-pop p-4 rounded-md shadow-md flex item center justify-center flex-col gap-2'>
+                <span className='text-lg font-semibold text-center'>
+                  {s.title}
+                </span>
+                <span className='text-sm text-center text-gray-400'>
+                  {s.desc}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
         <div className='mt-10'>
-          <h2 className='text-2xl font-semibold my-4 mx-auto'>
-            Tecnnology Stacks Under My Belt 💻 🛠️
+          <h2 className='text-2xl font-semibold my-4 text-center'>
+            Tecnnology Stacks 🛠️
           </h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             {technologies.map((tech) => (
@@ -183,7 +187,7 @@ const AboutPage = () => {
                   {tech.emoji}
                 </span>
                 <span className='text-lg font-semibold mt-2'>{tech.name}</span>
-                <p className='desc text-sm text-center text-gray-800 p-2'>
+                <p className='desc text-sm text-center text-gray-400 p-2'>
                   {tech.desc}
                 </p>
               </div>
