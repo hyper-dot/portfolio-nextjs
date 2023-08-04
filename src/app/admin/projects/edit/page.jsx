@@ -29,7 +29,7 @@ const Page = () => {
 
   if (!formData) {
     return (
-      <div className='h-screen'>
+      <div className='height-screen'>
         <div className='h-3/4 flex justify-center items-center text-red-500 text-3xl font-bold'>
           No Project Found !!!
         </div>
@@ -55,6 +55,11 @@ const Page = () => {
       const res = await axios.put(
         `${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects/${id}`,
         formData,
+        {
+          headers: {
+            Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+          },
+        },
       );
       console.log(res);
       router.back();
@@ -66,7 +71,7 @@ const Page = () => {
   return (
     <div>
       <h1>
-        <div className='p-10 max-w-4xl mx-auto'>
+        <div className='min-h-screen p-10 max-w-4xl mx-auto'>
           <form onSubmit={handleSubmit}>
             <div className='mb-4'>
               <label htmlFor='title' className='block font-semibold mb-2'>
