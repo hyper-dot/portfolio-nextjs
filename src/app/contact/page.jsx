@@ -37,6 +37,7 @@ const ContactPage = () => {
           setSuccess(true);
           notify('Sent !!');
           setLoading(false);
+          e.target.reset();
         },
         (error) => {
           setFail(true);
