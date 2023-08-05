@@ -168,8 +168,11 @@ const AboutPage = () => {
             Skills That I have Aquired 🎯💪
           </h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-            {skills.map((s) => (
-              <div className='card-with-shadow shadow-pop p-4 rounded-md shadow-md flex item center justify-center flex-col gap-2'>
+            {skills.map((s, index) => (
+              <div
+                key={index}
+                className='card-with-shadow shadow-pop p-4 rounded-md shadow-md flex item center justify-center flex-col gap-2'
+              >
                 <span className='text-lg font-semibold text-center'>
                   {s.title}
                 </span>
@@ -185,8 +188,11 @@ const AboutPage = () => {
             Tecnnology Stacks 🛠️
           </h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-            {technologies.map((tech) => (
-              <div className='card-with-shadow shadow-pop rounded-md py-4 p-2 flex flex-col items-center justify-center cursor-pointer'>
+            {technologies.map((tech, index) => (
+              <div
+                key={index}
+                className='card-with-shadow shadow-pop rounded-md py-4 p-2 flex flex-col items-center justify-center cursor-pointer'
+              >
                 <span className={`text-6xl ${tech.color ? tech.color : ''}`}>
                   {tech.emoji}
                 </span>
