@@ -78,7 +78,10 @@ const ContactPage = () => {
   //Fetch data if all condition fulfilled
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-  const { data, mutate, error, isLoading } = useSWR(`/api/notes`, fetcher);
+  const { data, mutate, error, detaFetchingLoading } = useSWR(
+    `/api/notes`,
+    fetcher,
+  );
 
   if (error) {
     console.log(error);
@@ -188,23 +191,30 @@ const ContactPage = () => {
           Leave A Note
         </h1>
         <div className='h-60 overflow-y-auto p-4 rounded-md border border-gray-600'>
-          {data?.map((d) => (
-            <div
-              key={d._id}
-              className='border-2 border-blue-400 p-2 rounded-lg mb-3 flex gap-2'
-            >
-              <img src={d.img} className='h-8 w-8 bg-white rounded-full' />
-              <div>
-                <h4 className='text-sm font-semibold'>{d.user}</h4>
-                <p className='font-thin text-sm '>{d.note}</p>
-                {d.email === session.data.user.email && (
-                  <button className='text-sm text-red-500 font-bold'>
-                    Delete
-                  </button>
-                )}
-              </div>
+          {detaFetchingLoading ? (
+            <div className='flex h-3/4 items-center justify-center animate-spin'>
+              <ImSpinner2 />
             </div>
-          ))}
+          ) : (
+            data?.map((d) => (
+              <div
+                key={d._id}
+                className='border-2 border-blue-400 p-2 rounded-lg mb-3 flex gap-2'
+              >
+                <img src={d.img} className='h-8 w-8 bg-white rounded-full' />
+                <div>
+                  <h4 className='text-sm font-semibold'>{d.user}</h4>
+                  <p className='font-thin text-sm '>{d.note}</p>
+                  {session.status === 'authenticated' &&
+                    d.email === session.data.user.email && (
+                      <button className='text-sm text-red-500 font-bold'>
+                        Delete
+                      </button>
+                    )}
+                </div>
+              </div>
+            ))
+          )}
         </div>
 
         <div>
