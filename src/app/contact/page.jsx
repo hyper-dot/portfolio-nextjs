@@ -78,10 +78,7 @@ const ContactPage = () => {
   //Fetch data if all condition fulfilled
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-  const { data, mutate, error, detaFetchingLoading } = useSWR(
-    `/api/notes`,
-    fetcher,
-  );
+  const { data, mutate, error, isLoading } = useSWR(`/api/notes`, fetcher);
 
   if (error) {
     console.log(error);
@@ -120,8 +117,18 @@ const ContactPage = () => {
     }
   };
 
+  // Delete Note
+  const deleteNote = async (id) => {
+    try {
+      const res = await axios.delete(`/api/notes/${id}`);
+      mutate();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
-    <div className='p-10 pt-28 min-h-screen max-w-3xl mx-auto grid grid-col-1 sm:grid-cols-2 gap-x-20'>
+    <div className='p-10 pt-28 min-h-screen max-w-3xl mx-auto grid grid-col-1 sm:grid-cols-2 gap-x-20 gap-y-10'>
       <div>
         <form ref={form} onSubmit={sendEmail}>
           <h1 className='text-3xl font-semibold mb-4'>🤝 Contact Me</h1>
@@ -191,30 +198,31 @@ const ContactPage = () => {
           Leave A Note
         </h1>
         <div className='h-60 overflow-y-auto p-4 rounded-md border border-gray-600'>
-          {detaFetchingLoading ? (
-            <div className='flex h-3/4 items-center justify-center animate-spin'>
-              <ImSpinner2 />
-            </div>
-          ) : (
-            data?.map((d) => (
-              <div
-                key={d._id}
-                className='border-2 border-blue-400 p-2 rounded-lg mb-3 flex gap-2'
-              >
-                <img src={d.img} className='h-8 w-8 bg-white rounded-full' />
-                <div>
-                  <h4 className='text-sm font-semibold'>{d.user}</h4>
-                  <p className='font-thin text-sm '>{d.note}</p>
-                  {session.status === 'authenticated' &&
-                    d.email === session.data.user.email && (
-                      <button className='text-sm text-red-500 font-bold'>
-                        Delete
-                      </button>
-                    )}
-                </div>
+          {data?.map((d) => (
+            <div
+              key={d._id}
+              className='border border-blue-400 p-2 rounded-lg mb-3 flex gap-2'
+            >
+              <img src={d.img} className='h-8 w-8 rounded-full' />
+              <div>
+                <h4 className='text-sm font-semibold'>{d.user}</h4>
+                <p className='note-text font-thin text-sm text-gray-100'>
+                  {d.note}
+                </p>
+                {session.status === 'authenticated' &&
+                  d.email === session.data.user.email && (
+                    <button
+                      onClick={() => {
+                        deleteNote(d._id);
+                      }}
+                      className='text-sm text-red-500 font-bold'
+                    >
+                      Delete
+                    </button>
+                  )}
               </div>
-            ))
-          )}
+            </div>
+          ))}
         </div>
 
         <div>
@@ -235,7 +243,7 @@ const ContactPage = () => {
               <div className='my-4'>
                 <form onSubmit={addNote}>
                   <textarea
-                    className='bg-transparent border w-full rounded-md p-2'
+                    className='bg-transparent border border-gray-600 w-full rounded-md p-2'
                     placeholder={`Add Note as ${session.data.user.name}`}
                   ></textarea>
 
