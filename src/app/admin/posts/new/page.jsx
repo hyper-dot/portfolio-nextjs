@@ -45,7 +45,7 @@ const WriteBlogPage = () => {
         </div>
         <div className='mb-4'>
           <label htmlFor='keywords' className='block font-semibold mb-2'>
-            Keywords
+            Description
           </label>
           <input
             type='text'
@@ -57,7 +57,7 @@ const WriteBlogPage = () => {
         </div>
         <div className='mb-4'>
           <label htmlFor='description' className='block font-semibold mb-2'>
-            Description
+            Keywords
           </label>
           <input
             type='text'
