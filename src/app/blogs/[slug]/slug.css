@@ -104,6 +104,7 @@ pre {
 }
 .dark pre {
   background-color: #1e1e1e;
+  margin: 1.5rem 0;
 }
 /* Customize the scrollbar thumb */
 pre::-webkit-scrollbar-thumb {
