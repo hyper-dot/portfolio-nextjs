@@ -104,7 +104,7 @@ const technologies = [
     name: 'CSS',
     emoji: <BiLogoCss3 />,
     desc: 'Cascading Style Sheets, used to control the presentation and layout of HTML elements, enhancing the visual appearance of web pages',
-    color: 'text-yellow-500',
+    color: 'text-blue-500',
   },
   {
     name: 'HTML',
@@ -191,7 +191,7 @@ const AboutPage = () => {
             {technologies.map((tech, index) => (
               <div
                 key={index}
-                className='card-with-shadow shadow-pop rounded-md py-4 p-2 flex flex-col items-center justify-center cursor-pointer'
+                className='card-with-shadow shadow-pop rounded-md py-4 p-2 flex flex-col items-center justify-center'
               >
                 <span className={`text-6xl ${tech.color ? tech.color : ''}`}>
                   {tech.emoji}
