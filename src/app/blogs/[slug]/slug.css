@@ -100,11 +100,11 @@ pre {
   padding: 1rem;
   background-color: #1c1c1c;
   overflow-x: auto;
-  scrollbar-width: 5px;
+  scrollbar-width: 3px;
+  margin: 1.5rem 0;
 }
 .dark pre {
   background-color: #1e1e1e;
-  margin: 1.5rem 0;
 }
 /* Customize the scrollbar thumb */
 pre::-webkit-scrollbar-thumb {
