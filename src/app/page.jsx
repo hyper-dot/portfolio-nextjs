@@ -4,6 +4,7 @@ import Image from 'next/image';
 import readableDate from '@/utils/readableDate';
 import Post from '@/models/Post';
 import connect from '@/utils/db';
+import CountVisitors from '@/components/CountVisitors';
 
 // Revalidate in 10 secs
 export const revalidate = 10;
@@ -26,9 +27,9 @@ export const metadata = {
 const HomePage = async () => {
   await connect();
   const posts = await Post.find().sort({ createdAt: -1 }).limit(3);
-
   return (
     <>
+      <CountVisitors />
       <div className='p-10 pt-12 min-h-screen flex items-start justify-center'>
         <div className='max-w-xl'>
           <Image
