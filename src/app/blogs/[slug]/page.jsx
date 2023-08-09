@@ -3,11 +3,7 @@ import Post from '@/models/Post';
 import './slug.css';
 import readableDate from '@/utils/readableDate';
 import connect from '@/utils/db';
-import { marked } from 'marked';
-marked.use({
-  mangle: false,
-  headerIds: false,
-});
+import 'highlight.js/styles/github-dark.css';
 
 // Revalidate in 10 secs
 export const revalidate = 43200;

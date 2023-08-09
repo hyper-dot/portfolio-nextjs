@@ -3,10 +3,20 @@ import connect from '@/utils/db';
 import Post from '@/models/Post';
 import slugify from 'slugify';
 
+import hljs from 'highlight.js';
 import { marked } from 'marked';
 marked.use({
   mangle: false,
   headerIds: false,
+});
+
+marked.setOptions({
+  highlight: (code, lang) => {
+    if (lang && hljs.getLanguage(lang)) {
+      return hljs.highlight(lang, code).value;
+    }
+    return hljs.highlightAuto(code).value;
+  },
 });
 
 //auth

@@ -3,9 +3,20 @@ import { NextResponse } from 'next/server';
 import connect from '@/utils/db';
 import slugify from 'slugify';
 import { marked } from 'marked';
+import hljs from 'highlight.js';
+
 marked.use({
   mangle: false,
   headerIds: false,
+});
+
+marked.setOptions({
+  highlight: (code, lang) => {
+    if (lang && hljs.getLanguage(lang)) {
+      return hljs.highlight(lang, code).value;
+    }
+    return hljs.highlightAuto(code).value;
+  },
 });
 
 export const GET = async (req, { params }) => {
