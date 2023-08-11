@@ -1,8 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import SignOutButton from '@/components/SignOutButton';
 import axios from 'axios';
+import Nav from '@/components/admin/Nav';
 
 const page = () => {
   const [count, setCount] = useState();
@@ -29,7 +28,7 @@ const page = () => {
   }, []);
 
   return (
-    <div className='height-screen flex flex-col justify-center items-center gap-4'>
+    <div className='col-span-3 flex flex-col justify-center items-center gap-4'>
       <h1 className='pb-2 text-xl text-green-500 '>
         Welcome To Admin Panel !!
       </h1>
@@ -41,16 +40,6 @@ const page = () => {
           </li>
         ))}
       </ul>
-      <Link className='px-10 py-2 bg-blue-500 rounded-md ' href='/admin/posts'>
-        See All Post
-      </Link>
-      <Link
-        className='px-10 py-2 bg-blue-500 rounded-md '
-        href='/admin/projects'
-      >
-        See All Projects
-      </Link>
-      <SignOutButton />
     </div>
   );
 };

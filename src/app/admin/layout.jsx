@@ -1,9 +1,10 @@
 'use client';
 import React from 'react';
 import { useSession } from 'next-auth/react';
-import Spinner from '@/components/Spinner';
+import Spinner from '@/components/admin/Spinner';
 import NotAuthorized from '@/components/NotAuthorized';
 import SignInButton from '@/components/SignInButton';
+import Nav from '@/components/admin/Nav';
 
 const layout = ({ children }) => {
   const session = useSession();
@@ -19,7 +20,12 @@ const layout = ({ children }) => {
 
   if (session.status === 'loading') return <Spinner />;
 
-  return children;
+  return (
+    <div className='h-screen grid grid-cols-4'>
+      <Nav />
+      {children}
+    </div>
+  );
 };
 
 export default layout;

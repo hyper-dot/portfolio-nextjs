@@ -4,7 +4,7 @@ import Image from 'next/image';
 import readableDate from '@/utils/readableDate';
 import Post from '@/models/Post';
 import connect from '@/utils/db';
-import CountVisitors from '@/components/CountVisitors';
+import CountVisitors from '@/components/admin/CountVisitors';
 
 // Revalidate in 10 secs
 export const revalidate = 10;

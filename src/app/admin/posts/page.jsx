@@ -5,7 +5,7 @@ import { BsPencilSquare } from 'react-icons/bs';
 import { RiDeleteBinFill } from 'react-icons/ri';
 import useSWR from 'swr';
 import axios from 'axios';
-import Spinner from '@/components/Spinner';
+import Spinner from '@/components/admin/Spinner';
 
 const page = () => {
   //NEW WAY TO FETCH DATA
@@ -31,7 +31,7 @@ const page = () => {
   };
 
   return (
-    <div className='pt-10 min-h-screen flex justify-center'>
+    <div className='col-span-3 pt-10 min-h-screen flex justify-center'>
       <h1>ALL Posts</h1>
       <ul className='mt-10 max-w-2xl'>
         {data.map((post) => (
