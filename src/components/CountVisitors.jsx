@@ -5,7 +5,10 @@ import axios from 'axios';
 const CountVisitors = () => {
   const saveIP = async () => {
     try {
-      await axios.post('https://imageserver-1-r6781895.deta.app/ip');
+      const res = await axios.get('https://api.ipify.org');
+      await axios.post('https://imageserver-1-r6781895.deta.app/ip', {
+        ip: res.data,
+      });
     } catch (e) {
       console.log('Error sending data to server !!');
     }
@@ -14,7 +17,7 @@ const CountVisitors = () => {
     saveIP();
   }, []);
 
-  return;
+  return <div></div>;
 };
 
 export default CountVisitors;
