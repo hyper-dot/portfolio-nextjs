@@ -6,11 +6,26 @@ import axios from 'axios';
 
 const page = () => {
   const [count, setCount] = useState();
+  const [countries, setCountries] = useState();
 
   useEffect(() => {
     axios
-      .get('https://imageserver-1-r6781895.deta.app/ip')
-      .then((res) => setCount(res.data.count));
+      .get(process.env.NEXT_PUBLIC_IMAGE_API + '/ip', {
+        headers: {
+          Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+        },
+      })
+      .then((res) => setCount(res.data.count))
+      .catch((err) => console.log(err));
+
+    axios
+      .get(process.env.NEXT_PUBLIC_IMAGE_API + '/ipdetailed', {
+        headers: {
+          Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+        },
+      })
+      .then((res) => setCountries(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -19,6 +34,13 @@ const page = () => {
         Welcome To Admin Panel !!
       </h1>
       <h2>Total Visitors Count : {count}</h2>
+      <ul>
+        {countries?.map((c, index) => (
+          <li key={index}>
+            {c.country} : {c.count}
+          </li>
+        ))}
+      </ul>
       <Link className='px-10 py-2 bg-blue-500 rounded-md ' href='/admin/posts'>
         See All Post
       </Link>
