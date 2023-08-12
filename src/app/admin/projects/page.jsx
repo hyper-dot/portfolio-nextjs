@@ -23,7 +23,7 @@ const page = () => {
     return <div>Error</div>;
   }
 
-  // Delete handler function
+  // Delete handler functionn
   const handleDelete = async (id) => {
     try {
       await axios.delete(
