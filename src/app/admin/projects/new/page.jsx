@@ -34,12 +34,12 @@ const page = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects`,
         formData,
         {
           headers: {
             'Content-Type': 'multipart/form-data',
-            Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+            Authorization: process.env.NEXT_PUBLIC_BACKEND_TOKEN,
           },
         },
       );

@@ -13,7 +13,7 @@ const page = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects`,
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects`,
     fetcher,
   );
 
@@ -27,10 +27,10 @@ const page = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects/${id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/${id}`,
         {
           headers: {
-            Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+            Authorization: process.env.NEXT_PUBLIC_BACKEND_TOKEN,
           },
         },
       );

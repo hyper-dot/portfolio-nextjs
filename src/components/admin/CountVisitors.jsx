@@ -13,7 +13,7 @@ const CountVisitors = () => {
         },
         {
           headers: {
-            Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+            Authorization: process.env.NEXT_PUBLIC_BACKEND_TOKEN,
           },
         },
       );

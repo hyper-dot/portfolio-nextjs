@@ -19,7 +19,7 @@ const Page = () => {
   });
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setFormData(data);
@@ -53,11 +53,11 @@ const Page = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `${process.env.NEXT_PUBLIC_IMAGE_API}/api/projects/${id}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/projects/${id}`,
         formData,
         {
           headers: {
-            Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+            Authorization: process.env.NEXT_PUBLIC_BACKEND_TOKEN,
           },
         },
       );

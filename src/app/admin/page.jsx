@@ -9,18 +9,18 @@ const page = () => {
 
   useEffect(() => {
     axios
-      .get(process.env.NEXT_PUBLIC_IMAGE_API + '/ip', {
+      .get(process.env.NEXT_PUBLIC_BACKEND_URL + '/ip', {
         headers: {
-          Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+          Authorization: process.env.NEXT_PUBLIC_BACKEND_TOKEN,
         },
       })
       .then((res) => setCount(res.data.count))
       .catch((err) => console.log(err));
 
     axios
-      .get(process.env.NEXT_PUBLIC_IMAGE_API + '/ipdetailed', {
+      .get(process.env.NEXT_PUBLIC_BACKEND_URL + '/ipdetailed', {
         headers: {
-          Authorization: process.env.NEXT_PUBLIC_IMAGE_TOKEN,
+          Authorization: process.env.NEXT_PUBLIC_BACKEND_TOKEN,
         },
       })
       .then((res) => setCountries(res.data))
