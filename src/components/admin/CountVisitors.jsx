@@ -7,7 +7,7 @@ const CountVisitors = () => {
     try {
       const res = await axios.get('https://api.ipify.org');
       await axios.post(
-        'https://imageserver-1-r6781895.deta.app/ip',
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/ip`,
         {
           ip: res.data,
         },

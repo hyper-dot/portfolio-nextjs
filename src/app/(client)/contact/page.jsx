@@ -54,10 +54,10 @@ const ContactPage = () => {
     setLoading(true);
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_YOUR_SERVICE_ID,
-        process.env.NEXT_PUBLIC_YOUR_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID,
         form.current,
-        process.env.NEXT_PUBLIC_YOUR_PUBLIC_KEY,
+        process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY,
       )
       .then(
         () => {
