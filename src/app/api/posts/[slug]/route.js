@@ -7,7 +7,7 @@ import hljs from "highlight.js";
 
 //auth
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
 marked.use({
   mangle: false,
