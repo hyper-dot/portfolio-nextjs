@@ -1,9 +1,13 @@
-import Post from '@/models/Post';
-import { NextResponse } from 'next/server';
-import connect from '@/utils/db';
-import slugify from 'slugify';
-import { marked } from 'marked';
-import hljs from 'highlight.js';
+import Post from "@/models/Post";
+import { NextResponse } from "next/server";
+import connect from "@/utils/db";
+import slugify from "slugify";
+import { marked } from "marked";
+import hljs from "highlight.js";
+
+//auth
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../auth/[...nextauth]/route";
 
 marked.use({
   mangle: false,
@@ -20,6 +24,12 @@ marked.setOptions({
 });
 
 export const GET = async (req, { params }) => {
+  const session = await getServerSession(authOptions);
+
+  if (!session || session.user.email != process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
+    return new NextResponse("Not Authorized!!", { status: 401 });
+  }
+
   const { slug } = params;
   try {
     await connect();
@@ -27,7 +37,7 @@ export const GET = async (req, { params }) => {
     return new NextResponse(JSON.stringify(post), { status: 201 });
   } catch (err) {
     console.log(err);
-    return new NextResponse('cannot find the post', { status: 500 });
+    return new NextResponse("cannot find the post", { status: 500 });
   }
 };
 
@@ -38,11 +48,11 @@ export const PUT = async (req, { params }) => {
     await connect();
     const post = await Post.findOne({ slug });
     const newSlug = slugify(body.title, {
-      replacement: '-', // replace spaces with replacement character, defaults to `-`
+      replacement: "-", // replace spaces with replacement character, defaults to `-`
       remove: undefined, // remove characters that match regex, defaults to `undefined`
       lower: false, // convert to lower case, defaults to `false`
       strict: false, // strip special characters except replacement, defaults to `false`
-      locale: 'vi', // language code of the locale to use
+      locale: "vi", // language code of the locale to use
       trim: true, // trim leading and trailing replacement chars, defaults to `true`
     });
 
@@ -57,17 +67,23 @@ export const PUT = async (req, { params }) => {
     return new NextResponse(JSON.stringify(post), { status: 201 });
   } catch (err) {
     console.log(err);
-    return new NextResponse('cannot find the post', { status: 500 });
+    return new NextResponse("cannot find the post", { status: 500 });
   }
 };
 
 export const DELETE = async (req, { params }) => {
+  const session = await getServerSession(authOptions);
+
+  if (!session || session.user.email != process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
+    return new NextResponse("Not Authorized!!", { status: 401 });
+  }
+
   const { slug } = params;
   try {
     await Post.findOneAndDelete({ slug });
-    return new NextResponse('deleted successfully', { status: 200 });
+    return new NextResponse("deleted successfully", { status: 200 });
   } catch (err) {
     console.log(err);
-    return new NextResponse('cannot delete post', { status: 500 });
+    return new NextResponse("cannot delete post", { status: 500 });
   }
 };
