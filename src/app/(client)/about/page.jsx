@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   BiLogoJavascript,
   BiLogoCss3,
@@ -6,146 +6,160 @@ import {
   BiLogoReact,
   BiLogoMongodb,
   BiLogoGoLang,
-} from 'react-icons/bi';
-import { SiExpress, SiNeovim } from 'react-icons/si';
-import { FaNode, FaLinux } from 'react-icons/fa';
-import { BsGit } from 'react-icons/bs';
-import { TbBrandNextjs } from 'react-icons/tb';
+  BiLogoTypescript,
+} from "react-icons/bi";
+import { SiExpress, SiNeovim } from "react-icons/si";
+import { FaNode, FaLinux } from "react-icons/fa";
+import { BsGit } from "react-icons/bs";
+import { TbBrandNextjs } from "react-icons/tb";
+import { GrMysql } from "react-icons/gr";
 
 const skills = [
   {
-    title: '⚡Quick Learning',
-    desc: 'Effective self-learning skills, including research, exploring documentation, and staying updated with the latest trends and technologies in web development.',
+    title: "⚡Quick Learning",
+    desc: "Effective self-learning skills, including research, exploring documentation, and staying updated with the latest trends and technologies in web development.",
   },
   {
-    title: '🎯 Problem Solving',
-    desc: 'The ability to approach challenges systematically, analyze issues, and find efficient solutions to problems in programming.',
+    title: "🎯 Problem Solving",
+    desc: "The ability to approach challenges systematically, analyze issues, and find efficient solutions to problems in programming.",
   },
   {
-    title: ' 📚 Version Control',
-    desc: 'Proficiency in using version control systems like Git, enabling collaboration and managing code changes effectively',
-  },
-
-  {
-    title: '🧑‍💻 Troubleshooting and Debugging',
-    desc: 'Skill in identifying and resolving errors, bugs, and performance issues in the code.',
-  },
-  {
-    title: '🚀 Deployment and Hosting',
-    desc: 'Familiarity with deploying web applications to servers and cloud platforms for 📢public access.',
-  },
-  {
-    title: '🔌 API Integration',
-    desc: 'Strong knowledge in integrating third-party APIs and services to enhance the functionality of web applications.',
+    title: " 📚 Version Control",
+    desc: "Proficiency in using version control systems like Git, enabling collaboration and managing code changes effectively",
   },
 
   {
-    title: '🐧 Linux',
-    desc: 'Strong understanding of linux operating system with knowledge of bash scripting, command line proficiency, linux networking, package management etc...',
+    title: "🧑‍💻 Troubleshooting and Debugging",
+    desc: "Skill in identifying and resolving errors, bugs, and performance issues in the code.",
+  },
+  {
+    title: "🚀 Deployment and Hosting",
+    desc: "Familiarity with deploying web applications to servers and cloud platforms for 📢public access.",
+  },
+  {
+    title: "🔌 API Integration",
+    desc: "Strong knowledge in integrating third-party APIs and services to enhance the functionality of web applications.",
   },
 
   {
-    title: '🔒Security',
-    desc: 'Awareness of web application security principles and best practices to protect against common vulnerabilities',
-  },
-  {
-    title: '🤖 Effective use of AI',
-    desc: 'Understainding of AI and knowledge of using AI powered tools to execute tasks faster',
+    title: "🐧 Linux",
+    desc: "Strong understanding of linux operating system with knowledge of bash scripting, command line proficiency, linux networking, package management etc...",
   },
 
   {
-    title: '📱 Responsive Design',
-    desc: 'Ability to create websites that adapt to different screen sizes and devices',
+    title: "🔒Security",
+    desc: "Awareness of web application security principles and best practices to protect against common vulnerabilities",
+  },
+  {
+    title: "🤖 Effective use of AI",
+    desc: "Understainding of AI and knowledge of using AI powered tools to execute tasks faster",
+  },
+
+  {
+    title: "📱 Responsive Design",
+    desc: "Ability to create websites that adapt to different screen sizes and devices",
   },
 ];
 
 const technologies = [
   {
-    name: 'MongoDB',
+    name: "MongoDB",
     emoji: <BiLogoMongodb />,
-    desc: 'A NoSQL database that stores data in flexible JSON-like documents, commonly used for scalable and dynamic applications',
-    color: 'text-green-500',
+    desc: "A NoSQL database that stores data in flexible JSON-like documents, commonly used for scalable and dynamic applications",
+    color: "text-green-500",
   },
   {
-    name: 'Express.js',
+    name: "Express.js",
     emoji: <SiExpress />,
-    desc: 'A popular Node.js web framework that simplifies server-side development and enables building robust APIs and web applications',
+    desc: "A popular Node.js web framework that simplifies server-side development and enables building robust APIs and web applications",
   },
   {
-    name: 'React',
+    name: "React",
     emoji: <BiLogoReact />,
-    desc: 'A JavaScript library for building interactive user interfaces, widely used for creating fast and reusable UI components',
-    color: 'text-blue-500',
+    desc: "A JavaScript library for building interactive user interfaces, widely used for creating fast and reusable UI components",
+    color: "text-blue-500",
   },
   {
-    name: 'NextJs',
+    name: "NextJs",
     emoji: <TbBrandNextjs />,
-    desc: 'A framework for server-rendered React applications that provides features like static site generation and server-side rendering',
+    desc: "A framework for server-rendered React applications that provides features like static site generation and server-side rendering",
   },
   {
-    name: 'Node.js',
+    name: "Node.js",
     emoji: <FaNode />,
-    desc: 'An open-source, event-driven runtime environment that allows executing JavaScript code on the server-side, ideal for building scalable network applications',
-    color: 'text-green-500',
+    desc: "An open-source, event-driven runtime environment that allows executing JavaScript code on the server-side, ideal for building scalable network applications",
+    color: "text-green-500",
   },
   {
-    name: 'Git',
+    name: "Git",
     emoji: <BsGit />,
-    desc: 'A distributed version control system for tracking changes in source code, facilitating collaboration and code management in software projects',
-    color: 'text-orange-500',
+    desc: "A distributed version control system for tracking changes in source code, facilitating collaboration and code management in software projects",
+    color: "text-orange-500",
   },
   {
-    name: 'JavaScript',
+    name: "JavaScript",
     emoji: <BiLogoJavascript />,
-    desc: 'A high-level, interpreted programming language that powers dynamic behavior and interactivity on web pages and applications',
-    color: 'text-yellow-500',
+    desc: "A high-level, interpreted programming language that powers dynamic behavior and interactivity on web pages and applications",
+    color: "text-yellow-500",
   },
   {
-    name: 'CSS',
+    name: "TypeScript",
+    emoji: <BiLogoTypescript />,
+    desc: "A high-level, statically-typed superset of JavaScript that enhances code quality and maintainability",
+    color: "text-blue-500",
+  },
+  {
+    name: "CSS",
     emoji: <BiLogoCss3 />,
-    desc: 'Cascading Style Sheets, used to control the presentation and layout of HTML elements, enhancing the visual appearance of web pages',
-    color: 'text-blue-500',
+    desc: "Cascading Style Sheets, used to control the presentation and layout of HTML elements, enhancing the visual appearance of web pages",
+    color: "text-blue-500",
   },
   {
-    name: 'HTML',
+    name: "HTML",
     emoji: <BiLogoHtml5 />,
-    desc: 'Hypertext Markup Language, the standard language for creating and structuring web content, forming the foundation of web pages',
-    color: 'text-orange-500',
+    desc: "Hypertext Markup Language, the standard language for creating and structuring web content, forming the foundation of web pages",
+    color: "text-orange-500",
   },
   {
-    name: 'Neovim',
+    name: "Neovim",
     emoji: <SiNeovim />,
-    desc: 'A modern text editor and improved version of Vim, designed for efficient and extensible code editing and development workflows',
-    color: 'text-green-500',
+    desc: "A modern text editor and improved version of Vim, designed for efficient and extensible code editing and development workflows",
+    color: "text-green-500",
   },
   {
-    name: 'Go (Golang)',
+    name: "Go (Golang)",
     emoji: <BiLogoGoLang />,
-    desc: 'A statically typed, compiled language known for its simplicity, performance, and concurrency support, suitable for system-level programming',
-    color: 'text-blue-500',
+    desc: "A statically typed, compiled language known for its simplicity, performance, and concurrency support, suitable for system-level programming",
+    color: "text-blue-500",
   },
   {
-    name: 'Linux',
+    name: "Linux",
     emoji: <FaLinux />,
-    desc: 'An open-source operating system kernel widely used in various distributions, providing a stable and secure environment for software development and deployment',
+    desc: "An open-source operating system kernel widely used in various distributions, providing a stable and secure environment for software development and deployment",
+  },
+  {
+    name: "MySQL",
+    emoji: <GrMysql />,
+    desc: "An open-source relational database management system that provides a stable and efficient storage solution for data-driven applications",
+    color: "text-blue-500",
   },
 
   // Add more technologies here as needed
 ];
 
 export const metadata = {
-  title: 'About Me - Roshan Paudel 🧒',
+  title: "About Me - Roshan Paudel 🧒",
   description:
-    'Hi, I am Roshan Paudel, a self-taught developer with a passion for coding and the MERN stack technology. Learn about my skills in quick learning, problem-solving, version control, troubleshooting, deployment, API integration, Linux, security, and effective use of Artificial Intelligence.',
+    "Hi, I am Roshan Paudel, a self-taught developer with a passion for coding and the MERN stack technology. Learn about my skills in quick learning, problem-solving, version control, troubleshooting, deployment, API integration, Linux, security, and effective use of Artificial Intelligence.",
   keywords:
-    'Roshan Paudel, self-taught developer, MERN stack, web development, quick learning, problem solving, version control, troubleshooting, deployment, API integration, Linux, security, Artificial Intelligence',
+    "Roshan Paudel, self-taught developer, MERN stack, web development, quick learning, problem solving, version control, troubleshooting, deployment, API integration, Linux, security, Artificial Intelligence",
 };
 
 const AboutPage = () => {
   return (
-    <div className='p-10 pt-28 min-h-screen flex items-start justify-center'>
-      <div className='max-w-xl'>
-        <h1 className='text-3xl font-semibold mb-8 text-center '>
+    <div className="p-10 pt-28 min-h-screen flex items-start justify-center">
+      <div className="max-w-xl">
+        <h1 className="text-3xl font-semibold mb-8 text-center ">
           About Me 🧒
         </h1>
         <p>
@@ -164,40 +178,40 @@ const AboutPage = () => {
           been instrumental in my progress.
         </p>
         <div>
-          <h2 className='text-2xl font-semibold my-4 mt-8 text-center'>
+          <h2 className="text-2xl font-semibold my-4 mt-8 text-center">
             Skills That I have Aquired 🎯💪
           </h2>
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {skills.map((s, index) => (
               <div
                 key={index}
-                className='card-with-shadow shadow-pop p-4 rounded-md shadow-md flex item center justify-center flex-col gap-2'
+                className="card-with-shadow shadow-pop p-4 rounded-md shadow-md flex item center justify-center flex-col gap-2"
               >
-                <span className='text-lg font-semibold text-center'>
+                <span className="text-lg font-semibold text-center">
                   {s.title}
                 </span>
-                <span className='desc text-sm text-center text-gray-400'>
+                <span className="desc text-sm text-center text-gray-400">
                   {s.desc}
                 </span>
               </div>
             ))}
           </div>
         </div>
-        <div className='mt-10'>
-          <h2 className='text-2xl font-semibold my-4 mb-8 text-center'>
+        <div className="mt-10">
+          <h2 className="text-2xl font-semibold my-4 mb-8 text-center">
             Technology Stacks 🛠️
           </h2>
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {technologies.map((tech, index) => (
               <div
                 key={index}
-                className='card-with-shadow shadow-pop rounded-md py-4 p-2 flex flex-col items-center justify-center'
+                className="card-with-shadow shadow-pop rounded-md py-4 p-2 flex flex-col items-center justify-center"
               >
-                <span className={`text-6xl ${tech.color ? tech.color : ''}`}>
+                <span className={`text-6xl ${tech.color ? tech.color : ""}`}>
                   {tech.emoji}
                 </span>
-                <span className='text-lg font-semibold mt-2'>{tech.name}</span>
-                <p className='desc text-sm text-center text-gray-400 p-2'>
+                <span className="text-lg font-semibold mt-2">{tech.name}</span>
+                <p className="desc text-sm text-center text-gray-400 p-2">
                   {tech.desc}
                 </p>
               </div>
