@@ -1,7 +1,22 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Nav from '@/components/admin/Nav';
+"use client";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Card, Title, BarChart, Subtitle } from "@tremor/react";
+
+const chartdata = [
+  {
+    name: "Amphibians",
+    "Number of threatened species": 2488,
+  },
+  {
+    name: "Birds",
+    "Number of threatened species": 1445,
+  },
+  {
+    name: "Crustaceans",
+    "Number of threatened species": 743,
+  },
+];
 
 const page = () => {
   const [count, setCount] = useState();
@@ -9,7 +24,7 @@ const page = () => {
 
   useEffect(() => {
     axios
-      .get(process.env.NEXT_PUBLIC_BACKEND_URL + '/ip', {
+      .get(process.env.NEXT_PUBLIC_BACKEND_URL + "/ip", {
         headers: {
           Authorization: process.env.NEXT_PUBLIC_BACKEND_TOKEN,
         },
@@ -18,18 +33,30 @@ const page = () => {
       .catch((err) => console.log(err));
 
     axios
-      .get(process.env.NEXT_PUBLIC_BACKEND_URL + '/ipdetailed', {
+      .get(process.env.NEXT_PUBLIC_BACKEND_URL + "/ipdetailed", {
         headers: {
           Authorization: process.env.NEXT_PUBLIC_BACKEND_TOKEN,
         },
       })
-      .then((res) => setCountries(res.data))
+      .then((res) => {
+        const countries = [];
+        res.data.map((country) => {
+          const data = {
+            name: country.country,
+            count: country.count,
+          };
+          countries.push(data);
+        });
+        setCountries(countries);
+        console.log(countries);
+      })
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className='col-span-3 flex flex-col justify-center items-center gap-4'>
-      <h1 className='pb-2 text-xl text-green-500 '>
+    <div className="col-span-3 flex flex-col justify-center items-center gap-4">
+      {/*
+      <h1 className="pb-2 text-xl text-green-500 ">
         Welcome To Admin Panel !!
       </h1>
       <h2>Total Visitors Count : {count}</h2>
@@ -40,6 +67,17 @@ const page = () => {
           </li>
         ))}
       </ul>
+      */}
+      <Card style={{ borderRadius: 0 }} className="h-screen">
+        <BarChart
+          className="mt-6"
+          data={countries}
+          index="name"
+          categories={["count"]}
+          colors={["blue"]}
+          yAxisWidth={48}
+        />
+      </Card>
     </div>
   );
 };
