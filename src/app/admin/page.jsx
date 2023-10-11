@@ -1,22 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Card, Title, BarChart, Subtitle } from "@tremor/react";
-
-const chartdata = [
-  {
-    name: "Amphibians",
-    "Number of threatened species": 2488,
-  },
-  {
-    name: "Birds",
-    "Number of threatened species": 1445,
-  },
-  {
-    name: "Crustaceans",
-    "Number of threatened species": 743,
-  },
-];
+import { Card, Title, BarChart, DonutChart } from "@tremor/react";
 
 const page = () => {
   const [count, setCount] = useState();
@@ -69,6 +54,7 @@ const page = () => {
       </ul>
       */}
       <Card style={{ borderRadius: 0 }} className="h-screen">
+        <Title>Total View Count : {count}</Title>
         <BarChart
           className="mt-6"
           data={countries}
@@ -76,6 +62,14 @@ const page = () => {
           categories={["count"]}
           colors={["blue"]}
           yAxisWidth={48}
+        />
+
+        <DonutChart
+          className="mt-6"
+          data={countries}
+          category="count"
+          index="name"
+          variant="pie"
         />
       </Card>
     </div>
