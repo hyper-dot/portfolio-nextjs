@@ -4,7 +4,7 @@ import { signOut } from "next-auth/react";
 
 const Nav = () => {
   return (
-    <div className="h-screen bg-gray-800 text-white py-10 fixed">
+    <div className="h-screen bg-gray-800 text-white py-10">
       <div className="px-10 h-full flex flex-col justify-center item-center">
         <Link className="py-2" href="/">
           Home

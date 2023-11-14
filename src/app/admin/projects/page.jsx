@@ -1,11 +1,11 @@
-'use client';
-import Link from 'next/link';
-import React from 'react';
-import { BsPencilSquare } from 'react-icons/bs';
-import { RiDeleteBinFill } from 'react-icons/ri';
-import useSWR from 'swr';
-import axios from 'axios';
-import Spinner from '@/components/admin/Spinner';
+"use client";
+import Link from "next/link";
+import React from "react";
+import { BsPencilSquare } from "react-icons/bs";
+import { RiDeleteBinFill } from "react-icons/ri";
+import useSWR from "swr";
+import axios from "axios";
+import Spinner from "@/components/admin/Spinner";
 
 const page = () => {
   //NEW WAY TO FETCH DATA
@@ -42,20 +42,20 @@ const page = () => {
 
   return (
     <>
-      <div className='col-span-3 pt-10 min-h-screen flex justify-center'>
+      <div className="pt-10 min-h-screen flex justify-center">
         <h1>ALL Projects</h1>
-        <ul className='mt-10 max-w-2xl'>
+        <ul className="mt-10 max-w-2xl">
           {data.map((project) => (
-            <li className='list-disc mt-2' key={project._id}>
+            <li className="list-disc mt-2" key={project._id}>
               {project.title}
               <Link
-                className='ml-4 text-xl inline-block hover:text-blue-600'
+                className="ml-4 text-xl inline-block hover:text-blue-600"
                 href={`/admin/projects/edit?id=${project._id}`}
               >
                 <BsPencilSquare />
               </Link>
               <button
-                className='text-xl ml-4 inline-block hover:text-red-600'
+                className="text-xl ml-4 inline-block hover:text-red-600"
                 onClick={() => handleDelete(project._id)}
               >
                 <RiDeleteBinFill />
@@ -64,8 +64,8 @@ const page = () => {
           ))}
         </ul>
         <Link
-          className='text-blue-500 underline underline-offset-4'
-          href='/admin/projects/new'
+          className="text-blue-500 underline underline-offset-4"
+          href="/admin/projects/new"
         >
           Create New Project
         </Link>

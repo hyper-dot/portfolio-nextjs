@@ -39,7 +39,7 @@ const page = () => {
   }, []);
 
   return (
-    <div className="col-span-3 flex flex-col justify-center items-center gap-4">
+    <div className="flex flex-col justify-center items-center gap-4">
       {/*
       <h1 className="pb-2 text-xl text-green-500 ">
         Welcome To Admin Panel !!

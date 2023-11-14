@@ -69,7 +69,7 @@ const Page = () => {
   };
 
   return (
-    <div className="col-span-3 w-full max-w-4xl p-4">
+    <div className="w-full max-w-4xl p-4">
       <h1 className="text-center font-bold text-2xl">Edit Project</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
